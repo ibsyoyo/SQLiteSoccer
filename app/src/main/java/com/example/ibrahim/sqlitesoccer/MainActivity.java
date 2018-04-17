@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Cursor results = myDbt.getAllDataTeam();
                         if(results.getCount() == 0 ){
-                            //show message
+                            //show message!
                             showMessage("Error", "Nothing Found");
                             return;
                         }
