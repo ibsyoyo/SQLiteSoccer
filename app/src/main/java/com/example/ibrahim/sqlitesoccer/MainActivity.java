@@ -14,7 +14,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Button buttonviewplayerprofile;
     DataBaseHelper myDb;
-
+    DataBaseHelper myDbt;
+    Button buttonviewteamprofile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +23,40 @@ public class MainActivity extends AppCompatActivity {
         buttonviewplayerprofile = (Button)findViewById(R.id.buttonviewplayer);
         myDb = new DataBaseHelper(this, "Players.db");
         viewAll();
+        myDbt = new DataBaseHelper(this, "Team.db");
 
+        buttonviewteamprofile = (Button)findViewById(R.id.buttonviewteam);
+        viewAllTeam();
+    }
+    public void viewAllTeam(){
+        buttonviewteamprofile.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Cursor results = myDbt.getAllDataTeam();
+                        if(results.getCount() == 0 ){
+                            //show message
+                            showMessage("Error", "Nothing Found");
+                            return;
+                        }
+
+                        StringBuffer buffer = new StringBuffer();
+                        while (results.moveToNext()){
+                            buffer.append("team_id : " + results.getString(0) + "\n");
+                            buffer.append("league_id : " + results.getString(1) + "\n");
+                            buffer.append("team_name : " + results.getString(2) + "\n");
+                            buffer.append("win : " + results.getString(3) + "\n");
+                            buffer.append("draw : " + results.getString(4) + "\n");
+                            buffer.append("loss : " + results.getString(5) + "\n\n");
+
+                        }
+
+                        //show all data from team
+                        showMessage("Team Table", buffer.toString());
+
+                    }
+                }
+        );
     }
 
     public void viewAll(){
