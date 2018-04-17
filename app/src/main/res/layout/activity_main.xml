@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,6 +12,7 @@
         android:id="@+id/editText3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:ems="10"
         android:fontFamily="serif-monospace"
         android:inputType="textPersonName"
@@ -43,4 +45,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View Team Info/profiles" />
+
+    <Button
+        android:id="@+id/analytics_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onAnalytics"
+        android:text="Analytics" />
 </LinearLayout>

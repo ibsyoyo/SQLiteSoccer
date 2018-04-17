@@ -111,4 +111,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    public void onAnalytics(View v) {
+        if(v.getId() == R.id.analytics_button){
+            Intent intent = new Intent(this, analyticsHome.class);
+            startActivity(intent);
+        }
+    }
 }

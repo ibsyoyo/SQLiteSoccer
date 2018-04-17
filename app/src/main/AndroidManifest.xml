@@ -20,7 +20,7 @@
             android:label="@string/SQLiteSoccer"
         </activity>
         <activity android:name=".addData"></activity>
-
+        <activity android:name=".analyticsHome"></activity>
         <activity android:name=".addDataTeam"></activity>
 
     </application>
