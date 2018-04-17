@@ -33,6 +33,13 @@
         android:text="click here to add team profile" />
 
     <Button
+        android:id="@+id/gotoaddskills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickaddskills"
+        android:text="Click Here to add team skills" />
+
+    <Button
         android:id="@+id/buttonviewplayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,4 +50,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View Team Info/profiles" />
+
+    <Button
+        android:id="@+id/buttonviewskills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Skills Info" />
 </LinearLayout>

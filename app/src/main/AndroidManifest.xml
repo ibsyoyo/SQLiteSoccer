@@ -23,6 +23,9 @@
 
         <activity android:name=".addDataTeam"></activity>
 
+        <activity android:name=".addDataSkills"></activity>
+
+
     </application>
 
 

@@ -22,11 +22,11 @@ public class addData extends AppCompatActivity {
 
         myDb = new DataBaseHelper(this, "Players.db");
 
-        editname = (EditText)findViewById(R.id.editText_name);
-        editjersey = (EditText)findViewById(R.id.editText_jersey);
-        editteam = (EditText)findViewById(R.id.editText_team);
+        editname = findViewById(R.id.editText_name);
+        editjersey = findViewById(R.id.editText_jersey);
+        editteam = findViewById(R.id.editText_team);
 
-        buttonaddplayer = (Button)findViewById(R.id.button_addplayer);
+        buttonaddplayer = findViewById(R.id.button_addplayer);
         AddPlayer();
     }
 
