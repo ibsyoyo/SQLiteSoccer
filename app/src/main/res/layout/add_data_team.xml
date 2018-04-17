@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ibrahim.sqlitesoccer.MainActivity">
+
+    <EditText
+        android:id="@+id/editText_teamid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="TEAM ID" />
+
+    <EditText
+        android:id="@+id/editText_league"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="LEAGUE ID" />
+
+    <EditText
+        android:id="@+id/editText_teamname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="TEAM NAME" />
+
+    <EditText
+        android:id="@+id/editText_win"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="WIN RECORD" />
+
+    <EditText
+        android:id="@+id/editText_draw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="DRAW RECORD" />
+
+    <EditText
+        android:id="@+id/editText_loss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="LOSS RECORD" />
+
+    <Button
+        android:id="@+id/button_addteam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add Team to Team_Table" />
+</LinearLayout>

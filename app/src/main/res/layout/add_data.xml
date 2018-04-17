@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ibrahim.sqlitesoccer.MainActivity">
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="PLAYER NAME" />
+
+    <EditText
+        android:id="@+id/editText_jersey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="JERSEY NUMBER" />
+
+    <EditText
+        android:id="@+id/editText_team"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="TEAM_ID" />
+
+    <Button
+        android:id="@+id/button_addplayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Player to Player_Table" />
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ibrahim.sqlitesoccer.MainActivity">
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="serif-monospace"
+        android:inputType="textPersonName"
+        android:text="Welcome to the Homepage!"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/gotoaddplayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickaddplayer"
+        android:text="Click Here to Add Player Profile" />
+
+    <Button
+        android:id="@+id/gotoaddteam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickaddteam"
+        android:text="click here to add team player" />
+</LinearLayout>
