@@ -30,5 +30,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onClickaddteam"
-        android:text="click here to add team player" />
+        android:text="click here to add team profile" />
+
+    <Button
+        android:id="@+id/buttonviewplayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Player Profiles" />
 </LinearLayout>

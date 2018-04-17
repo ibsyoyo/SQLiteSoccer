@@ -2,6 +2,8 @@ package com.example.ibrahim.sqlitesoccer;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -31,7 +33,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public DataBaseHelper(Context context, String temp) {
         super(context, temp, null, 1);
-
+        SQLiteDatabase db = this.getWritableDatabase();
 
 
     }
@@ -42,9 +44,20 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             db.execSQL("create table " + TABLE_NAME + "(player_id INTEGER PRIMARY KEY ," +
                     " player_name TEXT, jersey_num INTEGER, team_id INTEGER PRIMARY KEY)");
 
+        db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        //contentValues.put(COL_2, "Colin John");
+        //contentValues.put(COL_3, "20");
+        //contentValues.put(COL_4, "1");
+
+        //long result = db.insert(TABLE_NAME, null, contentValues);
+
 
             db.execSQL("create table " + TABLE_TEAM + "(team_id INTEGER PRIMARY KEY ," +
                     " league_id INTEGER PRIMARY KEY, team_name TEXT, win INTEGER, draw INTEGER, loss INTEGER)");
+
+
     }
 
     @Override
@@ -73,6 +86,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public boolean insertPlayer(String playername, String jerseynum, String teamid) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(COL_2, playername);
         contentValues.put(COL_3, jerseynum);
         contentValues.put(COL_4, teamid);
@@ -82,5 +96,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         else
             return true;
     }
+
+    public Cursor getAllData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor results = db.rawQuery("select * from " + TABLE_NAME, null );
+        return results;
+    }
+
 
 }

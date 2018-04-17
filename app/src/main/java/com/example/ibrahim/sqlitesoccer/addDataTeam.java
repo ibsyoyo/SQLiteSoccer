@@ -20,6 +20,7 @@ public class addDataTeam extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_data_team);
 
+
         myDb = new DataBaseHelper(this, "Team.db");
 
         editteamid = (EditText)findViewById(R.id.editText_teamid);
