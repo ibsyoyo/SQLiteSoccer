@@ -32,6 +32,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_5t = "draw";
     public static final String COL_6t = "loss";
 
+    public static final String DATABASE_SKILLS = "Skills.db";
+    public static final String TABLE_SKILLS = "skills_table";
+    public static final String COL_1s = "player_id";
+    public static final String COL_2s = "ovr_rate";
+    public static final String COL_3s = "att_rate";
+    public static final String COL_4s= "def_rate";
+    public static final String COL_5s= "postion";
+
+
+
 
     public DataBaseHelper(Context context, String temp) {
         super(context, temp, null, 1);
@@ -43,16 +53,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-            db.execSQL("create table " + TABLE_NAME + "(player_id INTEGER PRIMARY KEY ," +
+            db.execSQL("create table " + TABLE_NAME + "(player_id INTEGER PRIMARY KEY AUTOINCREMENT ," +
                     " player_name TEXT, jersey_num INTEGER, team_id INTEGER PRIMARY KEY)");
 
         db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-
-
             db.execSQL("create table " + TABLE_TEAM + "(team_id INTEGER PRIMARY KEY ," +
                     " league_id INTEGER PRIMARY KEY, team_name TEXT, win INTEGER, draw INTEGER, loss INTEGER)");
+
+
+        db.execSQL("create table " + TABLE_SKILLS + "(player_id INTEGER PRIMARY KEY ," +
+                " ovr_rate INTEGER, att_rate INTEGER, def_rate INTEGER, position TEXT)");
 
 
     }
@@ -61,9 +73,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAM);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKILLS);
             onCreate(db);
-          //db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAM);
-            //onCreate(db);
+
     }
 
     public boolean insertTeam(String teamid, String leagueid, String teamname, String win, String draw, String loss) {
@@ -76,10 +89,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_5t, draw);
         contentValues.put(COL_6t, loss);
         long result = db.insert(TABLE_TEAM, null, contentValues);
-            if (result == -1)
-                return false;
-            else
-                return true;
+        return result != -1;
     }
 
     public boolean insertPlayer(String playername, String jerseynum, String teamid) {
@@ -90,11 +100,24 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_3, jerseynum);
         contentValues.put(COL_4, teamid);
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if (result == -1)
-            return false;
-        else
-            return true;
+        return result != -1;
     }
+
+    public boolean insertSkills(String playerid, String ovrrate, String attrate, String defrate, String position) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COL_1s, playerid);
+        contentValues.put(COL_2s, ovrrate);
+        contentValues.put(COL_3s, attrate);
+        contentValues.put(COL_4s, defrate);
+        contentValues.put(COL_5s, position);
+
+        long result = db.insert(TABLE_SKILLS, null, contentValues);
+        return result != -1;
+    }
+
+
 
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -114,6 +137,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor result = db.rawQuery(query, null);
         return result;
+    }
+
+    public Cursor getAllDataSkills(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor results = db.rawQuery("select * from " + TABLE_SKILLS, null );
+        return results;
     }
 
 

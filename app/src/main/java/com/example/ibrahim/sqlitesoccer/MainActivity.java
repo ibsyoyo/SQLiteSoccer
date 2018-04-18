@@ -15,18 +15,57 @@ public class MainActivity extends AppCompatActivity {
     Button buttonviewplayerprofile;
     DataBaseHelper myDb;
     DataBaseHelper myDbt;
+    DataBaseHelper myDbs;
     Button buttonviewteamprofile;
+    Button buttonviewskillsprofile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        buttonviewplayerprofile = (Button)findViewById(R.id.buttonviewplayer);
+        buttonviewplayerprofile = findViewById(R.id.buttonviewplayer);
         myDb = new DataBaseHelper(this, "Players.db");
         viewAll();
+        buttonviewteamprofile = findViewById(R.id.buttonviewteam);
         myDbt = new DataBaseHelper(this, "Team.db");
         buttonviewteamprofile = (Button)findViewById(R.id.buttonviewteam);
         viewAllTeam();
+        buttonviewskillsprofile = findViewById(R.id.buttonviewskills);
+      //myDbs = new DataBaseHelper(this, "Skills.db");
+        viewAllSkills();
+
     }
+
+    public void viewAllSkills(){
+        buttonviewskillsprofile.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Cursor results = myDbs.getAllDataSkills();
+                        if(results.getCount() == 0 ){
+                            //show message
+                            showMessage("Error", "Nothing Found");
+                            return;
+                        }
+
+                        StringBuffer buffer = new StringBuffer();
+                        while (results.moveToNext()){
+                            buffer.append("player_id : " + results.getString(0) + "\n");
+                            buffer.append("ovr_rate : " + results.getString(1) + "\n");
+                            buffer.append("att_rate : " + results.getString(2) + "\n");
+                            buffer.append("def_rate : " + results.getString(3) + "\n");
+                            buffer.append("position : " + results.getString(4) + "\n\n");
+
+                        }
+
+                        //show all data from skills
+                        showMessage("Skills Table", buffer.toString());
+
+                    }
+                }
+        );
+    }
+
     public void viewAllTeam(){
         buttonviewteamprofile.setOnClickListener(
                 new View.OnClickListener() {
@@ -34,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Cursor results = myDbt.getAllDataTeam();
                         if(results.getCount() == 0 ){
-                            //show message
+                            //show message!
                             showMessage("Error", "Nothing Found");
                             return;
                         }
@@ -116,4 +155,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+    public void onClickaddskills(View v) {
+        if (v.getId() == R.id.gotoaddskills){
+            Intent intent = new Intent(this, addDataSkills.class);
+            startActivity(intent);
+        }
+
+    }
+
 }

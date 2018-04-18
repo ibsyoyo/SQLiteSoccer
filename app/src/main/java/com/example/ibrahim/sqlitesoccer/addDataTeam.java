@@ -23,14 +23,14 @@ public class addDataTeam extends AppCompatActivity {
 
         myDbt = new DataBaseHelper(this, "Team.db");
 
-        editteamid = (EditText)findViewById(R.id.editText_teamid);
-        editleague = (EditText)findViewById(R.id.editText_league);
-        editteamname = (EditText)findViewById(R.id.editText_teamname);
-        editwin = (EditText)findViewById(R.id.editText_win);
-        editdraw = (EditText)findViewById(R.id.editText_draw);
-        editloss = (EditText)findViewById(R.id.editText_loss);
+        editteamid = findViewById(R.id.editText_teamid);
+        editleague = findViewById(R.id.editText_league);
+        editteamname = findViewById(R.id.editText_teamname);
+        editwin = findViewById(R.id.editText_win);
+        editdraw = findViewById(R.id.editText_draw);
+        editloss = findViewById(R.id.editText_loss);
 
-        buttonaddteam = (Button)findViewById(R.id.button_addteam);
+        buttonaddteam = findViewById(R.id.button_addteam);
         AddTeam();
     }
 
