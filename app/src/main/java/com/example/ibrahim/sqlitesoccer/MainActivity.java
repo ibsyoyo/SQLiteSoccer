@@ -14,8 +14,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Button buttonviewplayerprofile;
     DataBaseHelper myDb;
-    DataBaseHelper myDbt;
-    DataBaseHelper myDbs;
+    //DataBaseHelper myDbt;
+    //DataBaseHelper myDbs;
     Button buttonviewteamprofile;
     Button buttonviewskillsprofile;
 
@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         buttonviewplayerprofile = findViewById(R.id.buttonviewplayer);
-        myDb = new DataBaseHelper(this, "Players.db");
+        myDb = new DataBaseHelper(this);
         viewAll();
         buttonviewteamprofile = findViewById(R.id.buttonviewteam);
-        myDbt = new DataBaseHelper(this, "Team.db");
+       // myDbt = new DataBaseHelper(this);
         buttonviewteamprofile = (Button)findViewById(R.id.buttonviewteam);
         viewAllTeam();
         buttonviewskillsprofile = findViewById(R.id.buttonviewskills);
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Cursor results = myDbs.getAllDataSkills();
+                        Cursor results = myDb.getAllDataSkills();
                         if(results.getCount() == 0 ){
                             //show message
                             showMessage("Error", "Nothing Found");
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Cursor results = myDbt.getAllDataTeam();
+                        Cursor results = myDb.getAllDataTeam();
                         if(results.getCount() == 0 ){
                             //show message!
                             showMessage("Error", "Nothing Found");

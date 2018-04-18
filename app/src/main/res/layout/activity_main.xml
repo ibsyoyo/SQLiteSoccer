@@ -56,4 +56,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View Skills Info" />
+
+    <Button
+        android:id="@+id/analytics_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onAnalytics"
+        android:text="Analytics" />
 </LinearLayout>

@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class teamAnalytics extends AppCompatActivity{
-    @Override
+
     String query;
     public static final String SELECT = "SELECT";
     public static final String FROM = "FROM";
@@ -16,10 +16,13 @@ public class teamAnalytics extends AppCompatActivity{
     public static final String GROUP_BY = "GROUP BY";
     public static final String HAVING = "HAVING";
     DataBaseHelper helper;
+
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.team_analytics);
-        helper = new DataBaseHelper(this, )
+        helper = new DataBaseHelper(this);
     }
     public void onEnter1(View v){
         EditText team = (EditText)findViewById(R.id.editTextQuery1);
@@ -43,11 +46,12 @@ public class teamAnalytics extends AppCompatActivity{
 
         }
     }
-    public void onEnter4(View v){
+    /*public void onEnter4(View v){
         if (v.getId() == R.id.enter4) {
 
         }
     }
+    */
     public void onEnter5(View v){
         if (v.getId() == R.id.enter5) {
 

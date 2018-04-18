@@ -23,7 +23,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_4 = "team_id";
 
 
-    public static final String DATABASE_TEAM = "Team.db";
+    //public static final String DATABASE_TEAM = "Team.db";
     public static final String TABLE_TEAM = "team_table";
     public static final String COL_1t = "team_id";
     public static final String COL_2t = "league_id";
@@ -32,7 +32,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_5t = "draw";
     public static final String COL_6t = "loss";
 
-    public static final String DATABASE_SKILLS = "Skills.db";
+   // public static final String DATABASE_SKILLS = "Skills.db";
     public static final String TABLE_SKILLS = "skills_table";
     public static final String COL_1s = "player_id";
     public static final String COL_2s = "ovr_rate";
@@ -43,8 +43,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
 
-    public DataBaseHelper(Context context, String temp) {
-        super(context, temp, null, 1);
+    public DataBaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, 1);
         SQLiteDatabase db = this.getWritableDatabase();
 
 
