@@ -21,7 +21,7 @@ public class addDataTeam extends AppCompatActivity {
         setContentView(R.layout.add_data_team);
 
 
-        myDb = new DataBaseHelper(this);
+        this.myDb = new DataBaseHelper(this);
 
         editteamid = findViewById(R.id.editText_teamid);
         editleague = findViewById(R.id.editText_league);
@@ -31,10 +31,10 @@ public class addDataTeam extends AppCompatActivity {
         editloss = findViewById(R.id.editText_loss);
 
         buttonaddteam = findViewById(R.id.button_addteam);
-        //AddTeam();
+        AddTeam();
     }
 
-    /*public void AddTeam() {
+    public void AddTeam() {
         buttonaddteam.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -54,7 +54,7 @@ public class addDataTeam extends AppCompatActivity {
                     }
                 }
         );
-    }*/
+    }
 
 
 }

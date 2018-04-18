@@ -42,9 +42,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     //private string create tables
     private static final String CREATE_PLAYER_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COL_2  + " INTEGER, " + COL_3 + " TEXT, " + COL_4 + " INTEGER, FOREIGN KEY("+COL_2+") REFERENCES " +TABLE_TEAM +" ("+COL_1t +"));";
-    //private static final String CREATE_TEAM_TABLE = "create table " + TABLE_TEAM + "(" + COL_1t + " INTEGER PRIMARY KEY ," +
-            //COL_2t + " INTEGER PRIMARY KEY, "+COL_3t+" TEXT, "+ COL_4t+" INTEGER, " + COL_5t + " INTEGER, "+ COL_6t+" INTEGER);";
+            COL_2  + " INTEGER, " + COL_3 + " INTEGER, " + COL_4 + " TEXT, FOREIGN KEY("+COL_2+") REFERENCES " +TABLE_TEAM +" ("+COL_1t +"));";
+
+    private static final String CREATE_TEAM_TABLE = "CREATE TABLE " + TABLE_TEAM + "(" + COL_1t + " INTEGER PRIMARY KEY ," +
+            COL_2t + " INTEGER PRIMARY KEY, "+COL_3t+" TEXT, "+ COL_4t+" INTEGER, " + COL_5t + " INTEGER, "+ COL_6t+" INTEGER);";
     //private static final String CREATE_SKILLS_TABLE = "create table " + TABLE_SKILLS + "( "+ COL_1s+" INTEGER PRIMARY KEY ," +
             //COL_2s + " INTEGER, "+COL_3s+" INTEGER, "+COL_4s+" INTEGER, "+COL_5s+" TEXT);";
 
@@ -57,7 +58,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_PLAYER_TABLE);
-        //db.execSQL(CREATE_TEAM_TABLE);
+        db.execSQL(CREATE_TEAM_TABLE);
         //db.execSQL(CREATE_SKILLS_TABLE);
         this.db = db;
     }

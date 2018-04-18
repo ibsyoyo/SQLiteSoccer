@@ -17,22 +17,22 @@ public class MainActivity extends AppCompatActivity {
     //DataBaseHelper myDbt;
     //DataBaseHelper myDbs;
     Button buttonviewteamprofile;
-    Button buttonviewskillsprofile;
+    //Button buttonviewskillsprofile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        buttonviewplayerprofile = findViewById(R.id.buttonviewplayer);
         myDb = new DataBaseHelper(this);
 
 
-        buttonviewplayerprofile = findViewById(R.id.buttonviewplayer);
 
         viewAll();
         buttonviewteamprofile = findViewById(R.id.buttonviewteam);
         buttonviewteamprofile = (Button)findViewById(R.id.buttonviewteam);
         viewAllTeam();
-        buttonviewskillsprofile = findViewById(R.id.buttonviewskills);
+        //buttonviewskillsprofile = findViewById(R.id.buttonviewskills);
         //viewAllSkills();
 
     }
@@ -150,6 +150,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    /*
     public void onAnalytics(View v) {
         if(v.getId() == R.id.analytics_button){
             Intent intent = new Intent(this, analyticsHome.class);
@@ -164,6 +166,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
+*/
 
 }
