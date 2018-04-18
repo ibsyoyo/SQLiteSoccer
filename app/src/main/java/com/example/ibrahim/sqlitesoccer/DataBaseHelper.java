@@ -15,7 +15,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static String SELECT_QUERY = " ";
 
-    public static final String DATABASE_NAME = "Players.db";
+    public static final String DATABASE_NAME = "Soccer.db";
     public static final String TABLE_NAME = "players_table";
     public static final String COL_1 = "player_id";
     public static final String COL_2 = "player_name";
