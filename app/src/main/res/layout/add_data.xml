@@ -35,5 +35,6 @@
         android:id="@+id/button_addplayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onEnterPlayer"
         android:text="Add Player to Player_Table" />
 </LinearLayout>

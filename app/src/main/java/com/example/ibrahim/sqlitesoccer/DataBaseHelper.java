@@ -14,56 +14,51 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static String SELECT_QUERY = " ";
-
-    public static final String DATABASE_NAME = "Players.db";
-    public static final String TABLE_NAME = "players_table";
-    public static final String COL_1 = "player_id";
-    public static final String COL_2 = "player_name";
-    public static final String COL_3 = "jersey_num";
-    public static final String COL_4 = "team_id";
+    public static SQLiteDatabase db;
+    public static final String DATABASE_NAME = "Soccer.db";
+    private static final String TABLE_NAME = "players_table";
+    private static final String COL_1 = "player_id";
+    private static final String COL_2 = "team_id";
+    private static final String COL_3 = "jersey_num";
+    private static final String COL_4 = "player_name";
 
 
     //public static final String DATABASE_TEAM = "Team.db";
-    public static final String TABLE_TEAM = "team_table";
-    public static final String COL_1t = "team_id";
-    public static final String COL_2t = "league_id";
-    public static final String COL_3t = "team_name";
-    public static final String COL_4t= "win";
-    public static final String COL_5t = "draw";
-    public static final String COL_6t = "loss";
+    private static final String TABLE_TEAM = "team_table";
+    private static final String COL_1t = "team_id";
+    private static final String COL_2t = "league_id";
+    private static final String COL_3t = "team_name";
+    private static final String COL_4t = "win";
+    private static final String COL_5t = "draw";
+    private static final String COL_6t = "loss";
 
    // public static final String DATABASE_SKILLS = "Skills.db";
-    public static final String TABLE_SKILLS = "skills_table";
-    public static final String COL_1s = "player_id";
-    public static final String COL_2s = "ovr_rate";
-    public static final String COL_3s = "att_rate";
-    public static final String COL_4s= "def_rate";
-    public static final String COL_5s= "position";
+    private static final String TABLE_SKILLS = "skills_table";
+    private static final String COL_1s = "player_id";
+    private static final String COL_2s = "ovr_rate";
+    private static final String COL_3s = "att_rate";
+    private static final String COL_4s= "def_rate";
+    private static final String COL_5s= "position";
 
-
+    //private string create tables
+    private static final String CREATE_PLAYER_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COL_2  + " INTEGER, " + COL_3 + " TEXT, " + COL_4 + " INTEGER, FOREIGN KEY("+COL_2+") REFERENCES " +TABLE_TEAM +" ("+COL_1t +"));";
+    //private static final String CREATE_TEAM_TABLE = "create table " + TABLE_TEAM + "(" + COL_1t + " INTEGER PRIMARY KEY ," +
+            //COL_2t + " INTEGER PRIMARY KEY, "+COL_3t+" TEXT, "+ COL_4t+" INTEGER, " + COL_5t + " INTEGER, "+ COL_6t+" INTEGER);";
+    //private static final String CREATE_SKILLS_TABLE = "create table " + TABLE_SKILLS + "( "+ COL_1s+" INTEGER PRIMARY KEY ," +
+            //COL_2s + " INTEGER, "+COL_3s+" INTEGER, "+COL_4s+" INTEGER, "+COL_5s+" TEXT);";
 
 
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-            db.execSQL("create table " + TABLE_NAME + "(player_id INTEGER PRIMARY KEY AUTOINCREMENT ," +
-                    " player_name TEXT, jersey_num INTEGER, team_id INTEGER PRIMARY KEY)");
-
-
-
-            db.execSQL("create table " + TABLE_TEAM + "(team_id INTEGER PRIMARY KEY ," +
-                    " league_id INTEGER PRIMARY KEY, team_name TEXT, win INTEGER, draw INTEGER, loss INTEGER)");
-
-
-        db.execSQL("create table " + TABLE_SKILLS + "(player_id INTEGER PRIMARY KEY ," +
-                " ovr_rate INTEGER, att_rate INTEGER, def_rate INTEGER, position TEXT)");
-
-
+        db.execSQL(CREATE_PLAYER_TABLE);
+        //db.execSQL(CREATE_TEAM_TABLE);
+        //db.execSQL(CREATE_SKILLS_TABLE);
+        this.db = db;
     }
 
     @Override
@@ -76,8 +71,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertTeam(String teamid, String leagueid, String teamname, String win, String draw, String loss) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public void insertTeam(String teamid, String leagueid, String teamname, String win, String draw, String loss) {
+        this.db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1t, teamid);
         contentValues.put(COL_2t, leagueid);
@@ -85,17 +80,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_4t, win);
         contentValues.put(COL_5t, draw);
         contentValues.put(COL_6t, loss);
-        long result = db.insert(TABLE_TEAM, null, contentValues);
-        if(result == -1)
+        //long result =
+        this.db.insert(TABLE_TEAM, null, contentValues);
+        /*if(result == -1)
             return false;
         else
-            return true;
+            return true;*/
     }
 
     public boolean insertPlayer(String playername, String jerseynum, String teamid) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        this.db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-
+        //contentValues.put(COL_1,)
         contentValues.put(COL_2, playername);
         contentValues.put(COL_3, jerseynum);
         contentValues.put(COL_4, teamid);
@@ -107,7 +103,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertSkills(String playerid, String ovrrate, String attrate, String defrate, String position) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        this.db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(COL_1s, playerid);
@@ -126,29 +122,29 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
     public Cursor getAllData(){
-        SQLiteDatabase db = this.getWritableDatabase();
+        this.db = this.getWritableDatabase();
 
-        Cursor results = db.rawQuery("select * from " + TABLE_NAME, null );
+        Cursor results = this.db.rawQuery("select * from " + TABLE_NAME, null );
         return results;
     }
 
     public Cursor getAllDataTeam(){
-        SQLiteDatabase db = this.getWritableDatabase();
+        this.db = this.getWritableDatabase();
 
-        Cursor results = db.rawQuery("select * from " + TABLE_TEAM, null );
+        Cursor results = this.db.rawQuery("select * from " + TABLE_TEAM, null );
         return results;
     }
     public Cursor getSpecifiedData(String query){
         SELECT_QUERY = query;
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor result = db.rawQuery(query, null);
+        this.db = this.getWritableDatabase();
+        Cursor result = this.db.rawQuery(query, null);
         return result;
     }
 
     public Cursor getAllDataSkills(){
-        SQLiteDatabase db = this.getWritableDatabase();
+        this.db = this.getWritableDatabase();
 
-        Cursor results = db.rawQuery("select * from " + TABLE_SKILLS, null );
+        Cursor results = this.db.rawQuery("select * from " + TABLE_SKILLS, null );
         return results;
     }
 
