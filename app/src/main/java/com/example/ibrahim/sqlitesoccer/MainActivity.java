@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         myDb = new DataBaseHelper(this, "Players.db");
         viewAll();
         myDbt = new DataBaseHelper(this, "Team.db");
-
         buttonviewteamprofile = (Button)findViewById(R.id.buttonviewteam);
         viewAllTeam();
     }
