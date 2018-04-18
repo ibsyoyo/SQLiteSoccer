@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.ibrahim.sqlitesoccer.MainActivity">
+    tools:context="com.example.ibrahim.sqlitesoccer.addData">
 
     <EditText
         android:id="@+id/editText_name"

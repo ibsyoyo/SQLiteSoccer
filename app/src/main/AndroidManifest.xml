@@ -20,12 +20,13 @@
             android:label="@string/SQLiteSoccer"
         </activity>
         <activity android:name=".addData"></activity>
-
+        <activity android:name=".analyticsHome"></activity>
         <activity android:name=".addDataTeam"></activity>
-
-        <activity android:name=".addDataSkills"></activity>
-
-
+        <activity android:name=".teamAnalytics"></activity>
+        <activity android:name=".playerAnalytics"></activity>
+        <activity android:name=".matchAnalytics"></activity>
+        <activity android:name=".leagueAnalytics"></activity>
+        <activity android:name=".skillsAnalytics"></activity>
     </application>
 
 

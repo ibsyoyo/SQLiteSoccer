@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         viewAll();
         buttonviewteamprofile = findViewById(R.id.buttonviewteam);
         myDbt = new DataBaseHelper(this, "Team.db");
+        buttonviewteamprofile = (Button)findViewById(R.id.buttonviewteam);
         viewAllTeam();
         buttonviewskillsprofile = findViewById(R.id.buttonviewskills);
       //myDbs = new DataBaseHelper(this, "Skills.db");
@@ -147,6 +148,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+    }
+    public void onAnalytics(View v) {
+        if(v.getId() == R.id.analytics_button){
+            Intent intent = new Intent(this, analyticsHome.class);
+            startActivity(intent);
+        }
     }
     public void onClickaddskills(View v) {
         if (v.getId() == R.id.gotoaddskills){
