@@ -20,7 +20,7 @@ public class addData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_data);
 
-        myDb = new DataBaseHelper(this, "Players.db");
+        myDb = new DataBaseHelper(this);
 
         editname = findViewById(R.id.editText_name);
         editjersey = findViewById(R.id.editText_jersey);

@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class addDataSkills extends AppCompatActivity {
 
-    DataBaseHelper myDbs;
+    DataBaseHelper myDb;
     EditText editplayerid, editovrrate, editattrate, editdefrate, editpos;
     Button buttonaddskills;
 
@@ -20,7 +20,7 @@ public class addDataSkills extends AppCompatActivity {
         setContentView(R.layout.add_data_skills);
 
 
-        myDbs = new DataBaseHelper(this, "Skills.db");
+        myDb = new DataBaseHelper(this);
 
         editplayerid = findViewById(R.id.editText_pid);
         editovrrate = findViewById(R.id.editText_ovr);
@@ -37,7 +37,7 @@ public class addDataSkills extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean isInserted = myDbs.insertSkills(editplayerid.getText().toString() ,
+                        boolean isInserted = myDb.insertSkills(editplayerid.getText().toString() ,
                                 editovrrate.getText().toString(),
                                 editattrate.getText().toString(),
                                 editdefrate.getText().toString(),
