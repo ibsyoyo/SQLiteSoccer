@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ibrahim.sqlitesoccer.MainActivity">
+
+    <EditText
+        android:id="@+id/editText_pid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Player ID"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_ovr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Overall Rating"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_att"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Attack Rating"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_def"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Def Rating"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_pos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Position"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button_addskills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Skill set to Skill Table" />
+</LinearLayout>
