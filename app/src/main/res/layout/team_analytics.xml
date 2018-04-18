@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbarStyle="insideOverlay"
+    android:visibility="visible">
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.example.ibrahim.sqlitesoccer.teamAnalytics">
+
+            <EditText
+                android:id="@+id/textViewWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome to Team Analytics" />
+
+            <TextView
+                android:id="@+id/textViewQuery1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter a team for overall rating" />
+
+            <EditText
+                android:id="@+id/editTextQuery1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enter1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnter1"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textViewQuery2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter two teams to see how many times they played each other" />
+
+            <EditText
+                android:id="@+id/editTextQuery2Team1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Team 1"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextQuery2Team2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Team 2"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enter3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnter3"
+                android:text="Enter" />
+
+            <Button
+                android:id="@+id/enter2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnter2"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textViewQuery3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter a team to find their record" />
+
+            <EditText
+                android:id="@+id/editTextQuery3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textViewQuery4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="If you would like to find the record of the team above after a certain date enter the team above and the date below" />
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="412dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/chooseDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onChooseDate"
+                android:text="Choose Date" />
+
+            <Button
+                android:id="@+id/enter5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnter5"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textViewQuery5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter a team to see the salary of all the player" />
+
+            <EditText
+                android:id="@+id/editTextQuery4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enter6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnter6"
+                android:text="Enter" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

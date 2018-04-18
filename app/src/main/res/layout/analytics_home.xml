@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="com.example.ibrahim.sqlitesoccer.analyticsHome">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to analytics, please choose an option below"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+    <Button
+        android:id="@+id/buttonTeamAnalytics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onTeamAnalytics"
+        android:text="Team analytics" />
+
+    <Button
+        android:id="@+id/playerAnalytics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onPlayerAnalytics"
+        android:text="Player Analytics" />
+
+    <Button
+        android:id="@+id/buttonMatchAnalytics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMatchAnalytics"
+        android:text="Match Analytics" />
+
+    <Button
+        android:id="@+id/buttonSkillsAnalytics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSkillsAnalytics"
+        android:text="Skill Analytics" />
+
+    <Button
+        android:id="@+id/buttonLeagueAnalytics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onLeagueAnalytics"
+        android:text="League Analytics" />
+</LinearLayout>
