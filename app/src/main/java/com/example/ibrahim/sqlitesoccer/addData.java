@@ -35,17 +35,19 @@ public class addData extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean isInserted = myDb.insertPlayer(editname.getText().toString() ,
-                                editjersey.getText().toString(),
-                                editteam.getText().toString() );
+                        //if (view.getId() == buttonaddplayer)
+                            boolean isInserted = myDb.insertPlayer(editname.getText().toString(),
+                                    editjersey.getText().toString(),
+                                    editteam.getText().toString());
 
-                        if(isInserted = true)
-                            Toast.makeText(addData.this, "Inserted new player profile.", Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(addData.this, "Could NOT insert new player profile.", Toast.LENGTH_LONG).show();
+                            if (isInserted == true)
+                                Toast.makeText(addData.this, "Inserted new player profile.", Toast.LENGTH_LONG).show();
+                            else
+                                Toast.makeText(addData.this, "Could NOT insert new player profile.", Toast.LENGTH_LONG).show();
 
+                        }
                     }
-                }
+
         );
     }
 

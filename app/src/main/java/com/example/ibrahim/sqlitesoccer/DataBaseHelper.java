@@ -70,8 +70,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAM);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKILLS);
+           // db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAM);
+            // db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKILLS);
             onCreate(db);
 
     }
@@ -105,7 +105,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         else
             return true;
     }
-
+/*
     public boolean insertSkills(String playerid, String ovrrate, String attrate, String defrate, String position) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -123,7 +123,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-
+*/
 
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -138,6 +138,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor results = db.rawQuery("select * from " + TABLE_TEAM, null );
         return results;
     }
+    /*
     public Cursor getSpecifiedData(String query){
         SELECT_QUERY = query;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -151,6 +152,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor results = db.rawQuery("select * from " + TABLE_SKILLS, null );
         return results;
     }
+    */
 
 
 }
