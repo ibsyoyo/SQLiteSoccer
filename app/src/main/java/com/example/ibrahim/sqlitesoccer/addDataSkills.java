@@ -20,7 +20,7 @@ public class addDataSkills extends AppCompatActivity {
         setContentView(R.layout.add_data_skills);
 
 
-        myDb = new DataBaseHelper(this);
+       myDb = new DataBaseHelper(this);
 
         editplayerid = findViewById(R.id.editText_pid);
         editovrrate = findViewById(R.id.editText_ovr);
@@ -52,6 +52,7 @@ public class addDataSkills extends AppCompatActivity {
                 }
         );
     }
+
 
 
 }

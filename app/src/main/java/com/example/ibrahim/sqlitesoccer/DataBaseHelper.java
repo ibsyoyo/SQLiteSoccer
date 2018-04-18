@@ -38,15 +38,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_2s = "ovr_rate";
     public static final String COL_3s = "att_rate";
     public static final String COL_4s= "def_rate";
-    public static final String COL_5s= "postion";
+    public static final String COL_5s= "position";
 
 
 
 
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = this.getWritableDatabase();
-
 
     }
 
@@ -56,8 +54,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             db.execSQL("create table " + TABLE_NAME + "(player_id INTEGER PRIMARY KEY AUTOINCREMENT ," +
                     " player_name TEXT, jersey_num INTEGER, team_id INTEGER PRIMARY KEY)");
 
-        db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
+
 
             db.execSQL("create table " + TABLE_TEAM + "(team_id INTEGER PRIMARY KEY ," +
                     " league_id INTEGER PRIMARY KEY, team_name TEXT, win INTEGER, draw INTEGER, loss INTEGER)");
@@ -89,7 +86,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_5t, draw);
         contentValues.put(COL_6t, loss);
         long result = db.insert(TABLE_TEAM, null, contentValues);
-        return result != -1;
+        if(result == -1)
+            return false;
+        else
+            return true;
     }
 
     public boolean insertPlayer(String playername, String jerseynum, String teamid) {
@@ -100,7 +100,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_3, jerseynum);
         contentValues.put(COL_4, teamid);
         long result = db.insert(TABLE_NAME, null, contentValues);
-        return result != -1;
+        if(result == -1)
+            return false;
+        else
+            return true;
     }
 
     public boolean insertSkills(String playerid, String ovrrate, String attrate, String defrate, String position) {
@@ -114,7 +117,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_5s, position);
 
         long result = db.insert(TABLE_SKILLS, null, contentValues);
-        return result != -1;
+        if(result == -1)
+            return false;
+        else
+            return true;
     }
 
 

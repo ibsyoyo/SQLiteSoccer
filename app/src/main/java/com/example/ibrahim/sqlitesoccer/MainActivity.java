@@ -23,19 +23,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         buttonviewplayerprofile = findViewById(R.id.buttonviewplayer);
-        myDb = new DataBaseHelper(this);
+        //myDb = new DataBaseHelper(this);
         viewAll();
         buttonviewteamprofile = findViewById(R.id.buttonviewteam);
-       // myDbt = new DataBaseHelper(this);
         buttonviewteamprofile = (Button)findViewById(R.id.buttonviewteam);
         viewAllTeam();
         buttonviewskillsprofile = findViewById(R.id.buttonviewskills);
-      //myDbs = new DataBaseHelper(this, "Skills.db");
-        viewAllSkills();
+        //viewAllSkills();
 
     }
-
+/*
     public void viewAllSkills(){
         buttonviewskillsprofile.setOnClickListener(
                 new View.OnClickListener() {
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
-
+*/
     public void viewAllTeam(){
         buttonviewteamprofile.setOnClickListener(
                 new View.OnClickListener() {
@@ -155,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+    /*
     public void onClickaddskills(View v) {
         if (v.getId() == R.id.gotoaddskills){
             Intent intent = new Intent(this, addDataSkills.class);
@@ -162,5 +162,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    */
 
 }
