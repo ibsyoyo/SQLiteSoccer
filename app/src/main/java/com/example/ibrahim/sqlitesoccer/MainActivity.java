@@ -26,16 +26,15 @@ public class MainActivity extends AppCompatActivity {
         buttonviewplayerprofile = findViewById(R.id.buttonviewplayer);
         myDb = new DataBaseHelper(this, "Players.db");
         viewAll();
-        myDbt = new DataBaseHelper(this, "Team.db");
-        myDbs = new DataBaseHelper(this, "Skills.db");
-
         buttonviewteamprofile = findViewById(R.id.buttonviewteam);
+        myDbt = new DataBaseHelper(this, "Team.db");
         viewAllTeam();
-
         buttonviewskillsprofile = findViewById(R.id.buttonviewskills);
+      //myDbs = new DataBaseHelper(this, "Skills.db");
         viewAllSkills();
 
     }
+
     public void viewAllSkills(){
         buttonviewskillsprofile.setOnClickListener(
                 new View.OnClickListener() {
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
                         }
 
-                        //show all data from team
+                        //show all data from skills
                         showMessage("Skills Table", buffer.toString());
 
                     }
@@ -156,4 +155,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 }
