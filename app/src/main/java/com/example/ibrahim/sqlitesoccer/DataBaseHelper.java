@@ -51,6 +51,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
+
     }
 
     @Override
@@ -71,8 +72,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insertTeam(String teamid, String leagueid, String teamname, String win, String draw, String loss) {
-        this.db = this.getWritableDatabase();
+    public boolean insertTeam(String teamid, String leagueid, String teamname, String win, String draw, String loss) {
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1t, teamid);
         contentValues.put(COL_2t, leagueid);
@@ -80,18 +81,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_4t, win);
         contentValues.put(COL_5t, draw);
         contentValues.put(COL_6t, loss);
-        //long result =
-        this.db.insert(TABLE_TEAM, null, contentValues);
-        /*if(result == -1)
+        long result = db.insert(TABLE_TEAM, null, contentValues);
+        if(result == -1)
             return false;
         else
-            return true;*/
+            return true;
     }
 
     public boolean insertPlayer(String playername, String jerseynum, String teamid) {
         this.db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        //contentValues.put(COL_1,)
+
         contentValues.put(COL_2, playername);
         contentValues.put(COL_3, jerseynum);
         contentValues.put(COL_4, teamid);

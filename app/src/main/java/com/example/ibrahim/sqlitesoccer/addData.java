@@ -26,40 +26,27 @@ public class addData extends AppCompatActivity {
         editjersey = findViewById(R.id.editText_jersey);
         editteam = findViewById(R.id.editText_team);
 
-        //buttonaddplayer = findViewById(R.id.button_addplayer);
-        //AddPlayer();
+        buttonaddplayer = findViewById(R.id.button_addplayer);
+        AddPlayer();
     }
 
-    /*public void AddPlayer() {
+    public void AddPlayer() {
         buttonaddplayer.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //boolean isInserted =
-                                myDb.insertPlayer(editname.getText().toString(),
+                        boolean isInserted = myDb.insertPlayer(editname.getText().toString() ,
                                 editjersey.getText().toString(),
                                 editteam.getText().toString() );
 
-                        //if(isInserted == true)
+                        if(isInserted == true)
                             Toast.makeText(addData.this, "Inserted new player profile.", Toast.LENGTH_LONG).show();
-                        //else
+                        else
                             Toast.makeText(addData.this, "Could NOT insert new player profile.", Toast.LENGTH_LONG).show();
 
                     }
                 }
         );
-    }*/
-    public void onEnterPlayer(View v) {
-        if(v.getId() == R.id.button_addplayer){
-            boolean isInserted = myDb.insertPlayer(editname.getText().toString(),
-                            editjersey.getText().toString(),
-                            editteam.getText().toString() );
-
-            if(isInserted == true)
-            Toast.makeText(addData.this, "Inserted new player profile.", Toast.LENGTH_LONG).show();
-            else
-            Toast.makeText(addData.this, "Could NOT insert new player profile.", Toast.LENGTH_LONG).show();
-        }
     }
 
 

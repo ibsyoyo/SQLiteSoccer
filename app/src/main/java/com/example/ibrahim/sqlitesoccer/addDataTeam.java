@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class addDataTeam extends AppCompatActivity {
 
-    DataBaseHelper myDbt;
+    DataBaseHelper myDb;
     EditText editteamid, editleague, editteamname, editwin, editdraw, editloss;
     Button buttonaddteam;
 
@@ -21,7 +21,7 @@ public class addDataTeam extends AppCompatActivity {
         setContentView(R.layout.add_data_team);
 
 
-        myDbt = new DataBaseHelper(this);
+        myDb = new DataBaseHelper(this);
 
         editteamid = findViewById(R.id.editText_teamid);
         editleague = findViewById(R.id.editText_league);
@@ -39,7 +39,7 @@ public class addDataTeam extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean isInserted = myDbt.insertTeam(editteamid.getText().toString() ,
+                        boolean isInserted = myDb.insertTeam(editteamid.getText().toString() ,
                                 editleague.getText().toString(),
                                 editteamname.getText().toString(),
                                 editwin.getText().toString(),
