@@ -187,7 +187,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean insertSkills(String playerid, String ovrrate, String attrate, String defrate, String position) {
+    public boolean insertSkills(String playerid, String ovrrate, String attrate, String defrate, String pos) {
         this.db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -195,7 +195,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_2s, ovrrate);
         contentValues.put(COL_3s, attrate);
         contentValues.put(COL_4s, defrate);
-        contentValues.put(COL_5s, position);
+        contentValues.put(COL_5s, pos);
 
         long result = db.insert(TABLE_SKILLS, null, contentValues);
         if(result == -1)
@@ -233,7 +233,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_3, leaguename);
         contentValues.put(COL_4, country);
 
-        long result = db.insert(TABLE_LEAGUE, null, contentValues);
+        long result = db.insert(TABLE_SALARY, null, contentValues);
         if(result == -1)
             return false;
         else
