@@ -18,7 +18,7 @@ public class addDataLeague extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_data);
+        setContentView(R.layout.add_data_league);
 
         this.myDb = new DataBaseHelper(this);
 
@@ -28,6 +28,7 @@ public class addDataLeague extends AppCompatActivity {
 
         buttonaddleague = findViewById(R.id.button_addleague);
         AddLeague();
+
     }
 
     public void AddLeague() {
@@ -35,7 +36,7 @@ public class addDataLeague extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean isInserted = myDb.insertPlayer(editleague.getText().toString() ,
+                        boolean isInserted = myDb.insertLeague(editleague.getText().toString() ,
                                 editleaguename.getText().toString(),
                                 editcountry.getText().toString() );
 
