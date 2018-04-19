@@ -40,6 +40,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COL_4s= "def_rate";
     private static final String COL_5s= "position";
 
+    // table skill
+    private static final String TABLE_SALARY = "salary_table";
+    private static final String COL_1sa = "player_id";
+    private static final String COL_2sa = "salary";
+
+    // Table league
     private static final String TABLE_LEAGUE = "league_table";
     private static final String COL_1l = "league_id";
 
@@ -68,9 +74,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + COL_5s + " TEXT,"
             + " FOREIGN KEY("+COL_1s+") REFERENCES "+TABLE_NAME+" ("+COL_1+"));";
 
+    private static final String CREATE_SALARY_TABLE = "CREATE TABLE " + TABLE_SALARY + "(" + COL_1sa + " INTEGER PRIMARY KEY, " +
+            COL_2sa  + " INTEGER);";
+
 
     public DataBaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 2);
+        super(context, DATABASE_NAME, null, 3);
 
     }
 
@@ -79,6 +88,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_PLAYER_TABLE);
         db.execSQL(CREATE_TEAM_TABLE);
         db.execSQL(CREATE_SKILLS_TABLE);
+        db.execSQL(CREATE_SALARY_TABLE);
+
         this.db = db;
     }
 
@@ -88,7 +99,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAM);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKILLS);
-            onCreate(db);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SALARY);
+
+        onCreate(db);
 
     }
 
@@ -119,6 +132,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_4, teamid);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertSalary(String playerid, String sal) {
+        this.db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COL_1sa, playerid);
+        contentValues.put(COL_2sa, sal);
+
+
+        long result = db.insert(TABLE_SALARY, null, contentValues);
         if(result == -1)
             return false;
         else
@@ -168,6 +196,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         this.db = this.getWritableDatabase();
 
         Cursor results = this.db.rawQuery("select * from " + TABLE_SKILLS, null );
+        return results;
+    }
+
+    public Cursor getAllDataSalary(){
+        this.db = this.getWritableDatabase();
+
+        Cursor results = this.db.rawQuery("select * from " + TABLE_SALARY, null );
         return results;
     }
 

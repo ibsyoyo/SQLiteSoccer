@@ -7,8 +7,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,21 +21,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        buttonviewplayerprofile = findViewById(R.id.buttonviewplayer);
         myDb = new DataBaseHelper(this);
 
 
-        buttonviewplayerprofile = findViewById(R.id.buttonviewplayer);
 
         viewAll();
         buttonviewteamprofile = findViewById(R.id.buttonviewteam);
         buttonviewteamprofile = (Button)findViewById(R.id.buttonviewteam);
         viewAllTeam();
         buttonviewskillsprofile = findViewById(R.id.buttonviewskills);
-        //viewAllSkills();
+        viewAllSkills();
 
     }
 
-   /* public void viewAllSkills(){
+    public void viewAllSkills(){
         buttonviewskillsprofile.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -66,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
-*/
+
     public void viewAllTeam(){
         buttonviewteamprofile.setOnClickListener(
                 new View.OnClickListener() {
@@ -150,6 +148,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
     public void onAnalytics(View v) {
         if(v.getId() == R.id.analytics_button){
             Intent intent = new Intent(this, analyticsHome.class);
@@ -160,6 +160,14 @@ public class MainActivity extends AppCompatActivity {
     public void onClickaddskills(View v) {
         if (v.getId() == R.id.gotoaddskills){
             Intent intent = new Intent(this, addDataSkills.class);
+            startActivity(intent);
+        }
+
+    }
+
+    public void onClickaddsalary(View v) {
+        if (v.getId() == R.id.gotoaddsalary){
+            Intent intent = new Intent(this, addDataSalary.class);
             startActivity(intent);
         }
 
