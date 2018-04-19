@@ -6,6 +6,67 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.ibrahim.sqlitesoccer.leagueAnalytics">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to League Analytics"
+        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter a league to find the best player(s) in that league" />
+
+    <EditText
+        android:id="@+id/editTextQueryl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/enterL1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onEnterL1"
+        android:text="Enter" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter a league to find out how many teams play in that league" />
+
+    <EditText
+        android:id="@+id/editTextQueryl2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/enterL2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onEnterL2"
+        android:text="Enter" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Press enter to see what teams play in what leagues" />
+
+    <Button
+        android:id="@+id/enterL3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onEnterL3"
+        android:text="Enter" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />

@@ -68,13 +68,6 @@
                 android:inputType="textPersonName" />
 
             <Button
-                android:id="@+id/enter3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="onEnter3"
-                android:text="Enter" />
-
-            <Button
                 android:id="@+id/enter2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,6 +87,13 @@
                 android:ems="10"
                 android:inputType="textPersonName" />
 
+            <Button
+                android:id="@+id/enter3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnter3"
+                android:text="Enter" />
+
             <TextView
                 android:id="@+id/textViewQuery4"
                 android:layout_width="match_parent"
@@ -106,18 +106,18 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone" />
 
-            <Button
-                android:id="@+id/chooseDate"
+            <EditText
+                android:id="@+id/editTextQuery3date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onChooseDate"
-                android:text="Choose Date" />
+                android:ems="10"
+                android:inputType="date" />
 
             <Button
-                android:id="@+id/enter5"
+                android:id="@+id/enter4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onEnter5"
+                android:onClick="onEnter4"
                 android:text="Enter" />
 
             <TextView
@@ -134,10 +134,83 @@
                 android:inputType="textPersonName" />
 
             <Button
+                android:id="@+id/enter5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnter5"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Press enter to see what team has the most amount of wins" />
+
+            <EditText
+                android:id="@+id/editTextQuery5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
                 android:id="@+id/enter6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="onEnter6"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter a team to find their best defender" />
+
+            <EditText
+                android:id="@+id/editTextQuery6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enter7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnter7"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter a stadium to find teams that have never played their" />
+
+            <EditText
+                android:id="@+id/editTextQuery7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enter8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnter8"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Press enter to find how many teams have more than 3 strikers" />
+
+            <Button
+                android:id="@+id/enter9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnter9"
                 android:text="Enter" />
 
         </LinearLayout>

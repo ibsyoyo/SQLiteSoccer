@@ -28,9 +28,9 @@ public class teamAnalytics extends AppCompatActivity{
         EditText team = (EditText)findViewById(R.id.editTextQuery1);
         String teamstr = team.getText().toString();
         if (v.getId() == R.id.enter1) {
-            query = "SELECT AVG(skills_table.overall_rating) team_overall " +
-                    "FROM skills_table JOIN player_table ON skills_table.player_id = player_table.player_id JOIN team_table ON player_table.player_id = team_table.player_id " +
-                    "HAVING team_table.team_name = " + teamstr;
+            query = SELECT+" AVG(skills_table.overall_rating) team_overall "
+                    + FROM +"skills_table JOIN player_table ON skills_table.player_id = player_table.player_id JOIN team_table ON player_table.player_id = team_table.player_id "
+                    + HAVING+" team_table.team_name = " + teamstr;
 
 
 
@@ -46,12 +46,11 @@ public class teamAnalytics extends AppCompatActivity{
 
         }
     }
-    /*public void onEnter4(View v){
+    public void onEnter4(View v){
         if (v.getId() == R.id.enter4) {
 
         }
     }
-    */
     public void onEnter5(View v){
         if (v.getId() == R.id.enter5) {
 
@@ -59,6 +58,16 @@ public class teamAnalytics extends AppCompatActivity{
     }
     public void onEnter6(View v){
         if (v.getId() == R.id.enter6) {
+
+        }
+    }
+    public void onEnter7(View v){
+        if (v.getId() == R.id.enter7) {
+
+        }
+    }
+    public void onEnter8(View v){
+        if (v.getId() == R.id.enter8) {
 
         }
     }

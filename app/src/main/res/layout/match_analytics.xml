@@ -1,13 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.ibrahim.sqlitesoccer.matchAnalytics">
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbarStyle="insideOverlay"
+    android:visibility="visible">
 
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/RelativeLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.example.ibrahim.sqlitesoccer.matchAnalytics">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome to Match Analytics"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter a date to see what teams played then" />
+
+            <EditText
+                android:id="@+id/editTextQuerym1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enterM1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnterM1"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter a referee to see how many matches he has officiated" />
+
+            <EditText
+                android:id="@+id/editTextQuerym2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enterM2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnterM2"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter two teams to see where they have played each other" />
+
+            <EditText
+                android:id="@+id/editTextQuerym3a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextQuerym3b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enterM3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnterM3"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter a date to see the goals of each match on that date" />
+
+            <EditText
+                android:id="@+id/editTextQuery3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="date" />
+
+            <Button
+                android:id="@+id/enterM4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnterM4"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Press enter to find out how many games did each referee officiate" />
+
+            <Button
+                android:id="@+id/enterM5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnterM5"
+                android:text="Enter" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>

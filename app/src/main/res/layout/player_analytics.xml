@@ -1,13 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.ibrahim.sqlitesoccer.playerAnalytics">
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbarStyle="insideOverlay"
+    android:visibility="visible">
 
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/RelativeLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.example.ibrahim.sqlitesoccer.playerAnalytics">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome to Player Analytics"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter a players name to find out what team they play for" />
+
+            <EditText
+                android:id="@+id/editTextQueryp1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enterP1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnterP1"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Press enter find all they players without a team" />
+
+            <Button
+                android:id="@+id/enterP2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnterP2"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter a players name to find out what country they play in" />
+
+            <EditText
+                android:id="@+id/editTextQueryP2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enterP3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnterP3"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnterP4"
+                android:text="Enter a players name to find out what their salary is" />
+
+            <EditText
+                android:id="@+id/editTextQueryP3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enterP4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnterP5"
+                android:text="Enter" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter a players name to find out what team they play for, what their number is, their player id, their overall rating, and their position" />
+
+            <EditText
+                android:id="@+id/editTextQueryP4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/enterP5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onEnterP6"
+                android:text="Enter" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>
