@@ -198,6 +198,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    public void onClickaddleague(View v) {
+        if (v.getId() == R.id.gotoaddsalary){
+            Intent intent = new Intent(this, addDataSalary.class);
+            startActivity(intent);
+        }
+
+    }
 
 
 }

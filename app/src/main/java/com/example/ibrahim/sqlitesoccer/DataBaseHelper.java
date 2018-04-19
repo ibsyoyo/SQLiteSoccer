@@ -278,5 +278,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return results;
     }
 
+    public Cursor getAllDataLeague(){
+        this.db = this.getWritableDatabase();
+
+        Cursor results = this.db.rawQuery("select * from " + TABLE_LEAGUE, null );
+        return results;
+    }
+
 
 }
