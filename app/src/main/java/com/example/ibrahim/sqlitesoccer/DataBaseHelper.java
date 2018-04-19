@@ -40,6 +40,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COL_4s= "def_rate";
     private static final String COL_5s= "position";
 
+
     //private string create tables
     private static final String CREATE_PLAYER_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COL_2  + " INTEGER, " + COL_3 + " INTEGER, " + COL_4 + " TEXT/*, FOREIGN KEY("+COL_2+") REFERENCES " +TABLE_TEAM +" ("+COL_1t +")*/);";
@@ -47,8 +48,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_TEAM_TABLE = "CREATE TABLE " + TABLE_TEAM + "(" + COL_1t + " INTEGER, " +
             COL_2t + " INTEGER, " + COL_3t + " TEXT, " + COL_4t + " INTEGER, " + COL_5t + " INTEGER, " + COL_6t +" INTEGER);";
 
-    //private static final String CREATE_SKILLS_TABLE = "create table " + TABLE_SKILLS + "( "+ COL_1s+" INTEGER PRIMARY KEY ," +
-            //COL_2s + " INTEGER, "+COL_3s+" INTEGER, "+COL_4s+" INTEGER, "+COL_5s+" TEXT);";
+    private static final String CREATE_SKILLS_TABLE = "CREATE TABLE " + TABLE_SKILLS + "( "+ COL_1s+" INTEGER PRIMARY KEY ," +
+            COL_2s + " INTEGER, "+COL_3s+" INTEGER, "+COL_4s+" INTEGER, "+COL_5s+" TEXT);";
 
 
     public DataBaseHelper(Context context) {
@@ -60,7 +61,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_PLAYER_TABLE);
         db.execSQL(CREATE_TEAM_TABLE);
-        //db.execSQL(CREATE_SKILLS_TABLE);
+        db.execSQL(CREATE_SKILLS_TABLE);
         this.db = db;
     }
 
@@ -69,7 +70,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAM);
-          //  db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKILLS);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKILLS);
             onCreate(db);
 
     }

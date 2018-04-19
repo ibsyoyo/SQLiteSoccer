@@ -29,9 +29,9 @@ public class addDataSkills extends AppCompatActivity {
         editpos = findViewById(R.id.editText_pos);
 
         buttonaddskills = findViewById(R.id.button_addskills);
-        //AddSkills();
+        AddSkills();
     }
-/*
+
     public void AddSkills() {
         buttonaddskills.setOnClickListener(
                 new View.OnClickListener() {
@@ -52,7 +52,7 @@ public class addDataSkills extends AppCompatActivity {
                 }
         );
     }
-*/
+
 
 
 }

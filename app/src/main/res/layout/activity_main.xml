@@ -7,15 +7,12 @@
     android:orientation="vertical"
     tools:context="com.example.ibrahim.sqlitesoccer.MainActivity">
 
-    <EditText
-        android:id="@+id/editText3"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="serif-monospace"
-        android:inputType="textPersonName"
-        android:text="Welcome to the Homepage!"
-        android:textAlignment="center"
+        android:text="Soccer Data Base Manager"
+        android:textAllCaps="true"
         android:textSize="24sp" />
 
     <Button
@@ -63,4 +60,5 @@
         android:layout_height="wrap_content"
         android:onClick="onAnalytics"
         android:text="Analytics" />
+
 </LinearLayout>
