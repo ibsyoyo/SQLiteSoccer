@@ -18,14 +18,14 @@ public class addDataSalary extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_data_salary);
+        //setContentView(R.layout.add_data_salary);
 
         this.myDb = new DataBaseHelper(this);
 
         editpid = findViewById(R.id.editText_pid);
-        editsalary = findViewById(R.id.editText_salary);
+        //editsalary = findViewById(R.id.editText_salary);
 
-        buttonaddsalary = findViewById(R.id.button_addsalary);
+        //buttonaddsalary = findViewById(R.id.button_addsalary);
         AddSalary();
     }
 
