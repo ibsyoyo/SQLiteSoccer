@@ -229,19 +229,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         this.db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(COL_2, leagueid);
-        contentValues.put(COL_3, leaguename);
-        contentValues.put(COL_4, country);
+        contentValues.put(COL_1l, leagueid);
+        contentValues.put(COL_2l, leaguename);
+        contentValues.put(COL_3l, country);
 
-        long result = db.insert(TABLE_SALARY, null, contentValues);
+        long result = db.insert(TABLE_LEAGUE, null, contentValues);
         if(result == -1)
             return false;
         else
             return true;
     }
-
-
-
 
 
     public Cursor getAllData(){
