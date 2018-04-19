@@ -31,15 +31,16 @@ public class addDataTeam extends AppCompatActivity {
         editloss = findViewById(R.id.editText_loss);
 
         buttonaddteam = findViewById(R.id.button_addteam);
-        //AddTeam();
+        AddTeam();
     }
 
-    /*public void AddTeam() {
+    public void AddTeam() {
         buttonaddteam.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean isInserted = myDb.insertTeam(editteamid.getText().toString() ,
+                        boolean isInserted = myDb.insertTeam(
+                                editteamid.getText().toString() ,
                                 editleague.getText().toString(),
                                 editteamname.getText().toString(),
                                 editwin.getText().toString(),
@@ -54,7 +55,7 @@ public class addDataTeam extends AppCompatActivity {
                     }
                 }
         );
-    }*/
+    }
 
 
 }

@@ -40,25 +40,45 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COL_4s= "def_rate";
     private static final String COL_5s= "position";
 
+    private static final String TABLE_LEAGUE = "league_table";
+    private static final String COL_1l = "league_id";
+
     //private string create tables
-    private static final String CREATE_PLAYER_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COL_2  + " INTEGER, " + COL_3 + " TEXT, " + COL_4 + " INTEGER, FOREIGN KEY("+COL_2+") REFERENCES " +TABLE_TEAM +" ("+COL_1t +"));";
-    //private static final String CREATE_TEAM_TABLE = "create table " + TABLE_TEAM + "(" + COL_1t + " INTEGER PRIMARY KEY ," +
-            //COL_2t + " INTEGER PRIMARY KEY, "+COL_3t+" TEXT, "+ COL_4t+" INTEGER, " + COL_5t + " INTEGER, "+ COL_6t+" INTEGER);";
-    //private static final String CREATE_SKILLS_TABLE = "create table " + TABLE_SKILLS + "( "+ COL_1s+" INTEGER PRIMARY KEY ," +
-            //COL_2s + " INTEGER, "+COL_3s+" INTEGER, "+COL_4s+" INTEGER, "+COL_5s+" TEXT);";
+    private static final String CREATE_PLAYER_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "("
+            + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + COL_2 + " INTEGER, "
+            + COL_3 + " TEXT, "
+            + COL_4 + " INTEGER, "
+            + " FOREIGN KEY("+COL_2+") REFERENCES "+TABLE_TEAM+" ("+COL_1t+"));";
+
+    private static final String CREATE_TEAM_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_TEAM + "("
+            + COL_1t + " INTEGER PRIMARY KEY, "
+            + COL_2t + " INTEGER, "
+            + COL_3t + " TEXT, "
+            + COL_4t + " INTEGER, "
+            + COL_5t + " INTEGER, "
+            + COL_6t + " INTEGER, "
+            + " FOREIGN KEY("+COL_2t+") REFERENCES "+TABLE_LEAGUE+" ("+COL_1l+"));";
+
+    private static final String CREATE_SKILLS_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_SKILLS + "("
+            + COL_1s + " INTEGER PRIMARY KEY, "
+            + COL_2s + " INTEGER, "
+            + COL_3s + " INTEGER, "
+            + COL_4s + " INTEGER, "
+            + COL_5s + " TEXT,"
+            + " FOREIGN KEY("+COL_1s+") REFERENCES "+TABLE_NAME+" ("+COL_1+"));";
 
 
     public DataBaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 2);
 
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_PLAYER_TABLE);
-        //db.execSQL(CREATE_TEAM_TABLE);
-        //db.execSQL(CREATE_SKILLS_TABLE);
+        db.execSQL(CREATE_TEAM_TABLE);
+        db.execSQL(CREATE_SKILLS_TABLE);
         this.db = db;
     }
 
@@ -73,14 +93,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertTeam(String teamid, String leagueid, String teamname, String win, String draw, String loss) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        this.db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(COL_1t, teamid);
         contentValues.put(COL_2t, leagueid);
         contentValues.put(COL_3t, teamname);
         contentValues.put(COL_4t, win);
         contentValues.put(COL_5t, draw);
         contentValues.put(COL_6t, loss);
+
         long result = db.insert(TABLE_TEAM, null, contentValues);
         if(result == -1)
             return false;
@@ -95,6 +117,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_2, playername);
         contentValues.put(COL_3, jerseynum);
         contentValues.put(COL_4, teamid);
+
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1)
             return false;
