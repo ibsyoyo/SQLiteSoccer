@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.example.ibrahim.sqlitesoccer.MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Soccer Data Base Manager"
-        android:textAllCaps="true"
-        android:textSize="24sp" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/gotoaddplayer"
@@ -34,14 +29,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onClickaddskills"
-        android:text="Click Here to add team skills" />
+        android:text="Click Here to add a skills profile" />
 
     <Button
         android:id="@+id/gotoaddsalary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onClickaddsalary"
-        android:text="Click Here to add salary" />
+        android:text="Click Here to add a salary profile" />
+
+    <Button
+        android:id="@+id/gotoaddleague"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickaddleague"
+        android:text="Click Here to add a League Profile" />
 
     <Button
         android:id="@+id/buttonviewplayer"
@@ -68,6 +70,12 @@
         android:text="View Salary Profiles" />
 
     <Button
+        android:id="@+id/buttonviewleague"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View League Profiles" />
+
+    <Button
         android:id="@+id/analytics_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,3 +83,5 @@
         android:text="Analytics" />
 
 </LinearLayout>
+
+</ScrollView>
