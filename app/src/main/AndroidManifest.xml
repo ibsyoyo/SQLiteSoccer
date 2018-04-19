@@ -28,6 +28,8 @@
         <activity android:name=".matchAnalytics"></activity>
         <activity android:name=".leagueAnalytics"></activity>
         <activity android:name=".skillsAnalytics"></activity>
+        <activity android:name=".addDataSalary"></activity>
+
     </application>
 
 

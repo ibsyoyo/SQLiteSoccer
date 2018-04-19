@@ -40,6 +40,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COL_4s= "def_rate";
     private static final String COL_5s= "position";
 
+    private static final String TABLE_SALARY = "salary_table";
+    private static final String COL_1sa = "player_id";
+    private static final String COL_2sa = "salary";
+
+
 
     //private string create tables
     private static final String CREATE_PLAYER_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -56,6 +61,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             COL_2s  + " INTEGER, " + COL_3s + " INTEGER, " + COL_4s + " TEXT, " + COL_5s + " TEXT);";
 
 
+    private static final String CREATE_SALARY_TABLE = "CREATE TABLE " + TABLE_SALARY + "(" + COL_1sa + " INTEGER PRIMARY KEY, " +
+            COL_2sa  + " INTEGER);";
+
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
 
@@ -66,6 +74,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_PLAYER_TABLE);
         db.execSQL(CREATE_TEAM_TABLE);
         db.execSQL(CREATE_SKILLS_TABLE);
+        db.execSQL(CREATE_SALARY_TABLE);
+
         this.db = db;
     }
 
@@ -75,7 +85,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAM);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKILLS);
-            onCreate(db);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SALARY);
+
+        onCreate(db);
 
     }
 
@@ -106,6 +118,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_4, teamid);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertSalary(String playerid, String sal) {
+        this.db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COL_1sa, playerid);
+        contentValues.put(COL_2sa, sal);
+
+
+        long result = db.insert(TABLE_SALARY, null, contentValues);
         if(result == -1)
             return false;
         else
@@ -155,6 +182,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         this.db = this.getWritableDatabase();
 
         Cursor results = this.db.rawQuery("select * from " + TABLE_SKILLS, null );
+        return results;
+    }
+
+    public Cursor getAllDataSalary(){
+        this.db = this.getWritableDatabase();
+
+        Cursor results = this.db.rawQuery("select * from " + TABLE_SALARY, null );
         return results;
     }
 

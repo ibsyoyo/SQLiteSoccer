@@ -37,6 +37,13 @@
         android:text="Click Here to add team skills" />
 
     <Button
+        android:id="@+id/gotoaddsalary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickaddsalary"
+        android:text="Click Here to add salary" />
+
+    <Button
         android:id="@+id/buttonviewplayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
