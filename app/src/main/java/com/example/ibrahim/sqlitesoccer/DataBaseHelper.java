@@ -45,11 +45,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_PLAYER_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COL_2  + " INTEGER, " + COL_3 + " INTEGER, " + COL_4 + " TEXT/*, FOREIGN KEY("+COL_2+") REFERENCES " +TABLE_TEAM +" ("+COL_1t +")*/);";
 
+    //THIS TABLE IS NOT CORRECT
     private static final String CREATE_TEAM_TABLE = "CREATE TABLE " + TABLE_TEAM + "(" + COL_1t + " INTEGER, " +
             COL_2t + " INTEGER, " + COL_3t + " TEXT, " + COL_4t + " INTEGER, " + COL_5t + " INTEGER, " + COL_6t +" INTEGER);";
 
-    private static final String CREATE_SKILLS_TABLE = "CREATE TABLE " + TABLE_SKILLS + "( "+ COL_1s+" INTEGER PRIMARY KEY ," +
-            COL_2s + " INTEGER, "+COL_3s+" INTEGER, "+COL_4s+" INTEGER, "+COL_5s+" TEXT);";
+
+    //THIS TABLE IS NOT CORRECT... re written
+
+    private static final String CREATE_SKILLS_TABLE = "CREATE TABLE " + TABLE_SKILLS + "(" + COL_1s + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COL_2s  + " INTEGER, " + COL_3s + " INTEGER, " + COL_4s + " TEXT, " + COL_5s + " TEXT);";
 
 
     public DataBaseHelper(Context context) {
