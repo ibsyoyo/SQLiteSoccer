@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     //DataBaseHelper myDbt;
     //DataBaseHelper myDbs;
     Button buttonviewteamprofile;
-    //Button buttonviewskillsprofile;
+    Button buttonviewskillsprofile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
         buttonviewteamprofile = findViewById(R.id.buttonviewteam);
         buttonviewteamprofile = (Button)findViewById(R.id.buttonviewteam);
         viewAllTeam();
-        //buttonviewskillsprofile = findViewById(R.id.buttonviewskills);
-        //viewAllSkills();
+        buttonviewskillsprofile = findViewById(R.id.buttonviewskills);
+        viewAllSkills();
 
     }
 
-   /* public void viewAllSkills(){
+    public void viewAllSkills(){
         buttonviewskillsprofile.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
-*/
+
     public void viewAllTeam(){
         buttonviewteamprofile.setOnClickListener(
                 new View.OnClickListener() {
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*
+
     public void onAnalytics(View v) {
         if(v.getId() == R.id.analytics_button){
             Intent intent = new Intent(this, analyticsHome.class);
@@ -166,6 +166,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-*/
+
 
 }

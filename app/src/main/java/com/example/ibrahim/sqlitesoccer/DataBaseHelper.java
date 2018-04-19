@@ -42,10 +42,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     //private string create tables
     private static final String CREATE_PLAYER_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COL_2  + " INTEGER, " + COL_3 + " INTEGER, " + COL_4 + " TEXT, FOREIGN KEY("+COL_2+") REFERENCES " +TABLE_TEAM +" ("+COL_1t +"));";
+            COL_2  + " INTEGER, " + COL_3 + " INTEGER, " + COL_4 + " TEXT/*, FOREIGN KEY("+COL_2+") REFERENCES " +TABLE_TEAM +" ("+COL_1t +")*/);";
 
-    private static final String CREATE_TEAM_TABLE = "CREATE TABLE " + TABLE_TEAM + "(" + COL_1t + " INTEGER PRIMARY KEY ," +
-            COL_2t + " INTEGER PRIMARY KEY, "+COL_3t+" TEXT, "+ COL_4t+" INTEGER, " + COL_5t + " INTEGER, "+ COL_6t+" INTEGER);";
+    private static final String CREATE_TEAM_TABLE = "CREATE TABLE " + TABLE_TEAM + "(" + COL_1t + " INTEGER, " +
+            COL_2t + " INTEGER, " + COL_3t + " TEXT, " + COL_4t + " INTEGER, " + COL_5t + " INTEGER, " + COL_6t +" INTEGER);";
+
     //private static final String CREATE_SKILLS_TABLE = "create table " + TABLE_SKILLS + "( "+ COL_1s+" INTEGER PRIMARY KEY ," +
             //COL_2s + " INTEGER, "+COL_3s+" INTEGER, "+COL_4s+" INTEGER, "+COL_5s+" TEXT);";
 
@@ -68,20 +69,22 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAM);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKILLS);
+          //  db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKILLS);
             onCreate(db);
 
     }
 
     public boolean insertTeam(String teamid, String leagueid, String teamname, String win, String draw, String loss) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        this.db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(COL_1t, teamid);
         contentValues.put(COL_2t, leagueid);
         contentValues.put(COL_3t, teamname);
         contentValues.put(COL_4t, win);
         contentValues.put(COL_5t, draw);
         contentValues.put(COL_6t, loss);
+
         long result = db.insert(TABLE_TEAM, null, contentValues);
         if(result == -1)
             return false;
@@ -96,6 +99,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_2, playername);
         contentValues.put(COL_3, jerseynum);
         contentValues.put(COL_4, teamid);
+
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1)
             return false;
