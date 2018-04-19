@@ -53,13 +53,19 @@
         android:id="@+id/buttonviewteam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Team Info/profiles" />
+        android:text="View Team Profiles" />
 
     <Button
         android:id="@+id/buttonviewskills"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Skills Info" />
+        android:text="View Skills Profiles" />
+
+    <Button
+        android:id="@+id/buttonviewsalary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Salary Profiles" />
 
     <Button
         android:id="@+id/analytics_button"

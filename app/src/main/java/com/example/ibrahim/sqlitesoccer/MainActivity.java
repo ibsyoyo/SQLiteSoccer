@@ -12,10 +12,9 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     Button buttonviewplayerprofile;
     DataBaseHelper myDb;
-    //DataBaseHelper myDbt;
-    //DataBaseHelper myDbs;
     Button buttonviewteamprofile;
     Button buttonviewskillsprofile;
+    Button buttonviewsalaryprofile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +23,42 @@ public class MainActivity extends AppCompatActivity {
         buttonviewplayerprofile = findViewById(R.id.buttonviewplayer);
         myDb = new DataBaseHelper(this);
 
-
-
         viewAll();
         buttonviewteamprofile = findViewById(R.id.buttonviewteam);
         buttonviewteamprofile = (Button)findViewById(R.id.buttonviewteam);
         viewAllTeam();
         buttonviewskillsprofile = findViewById(R.id.buttonviewskills);
         viewAllSkills();
+        buttonviewsalaryprofile = findViewById(R.id.buttonviewsalary);
+        viewAllSalary();
 
+    }
+
+    public void viewAllSalary(){
+        buttonviewsalaryprofile.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Cursor results = myDb.getAllDataSkills();
+                        if(results.getCount() == 0 ){
+                            //show message
+                            showMessage("Error", "Nothing Found");
+                            return;
+                        }
+
+                        StringBuffer buffer = new StringBuffer();
+                        while (results.moveToNext()){
+                            buffer.append("player_id : " + results.getString(0) + "\n");
+                            buffer.append("salary : " + results.getString(1) + "\n\n");
+
+                        }
+
+                        //show all data from skills
+                        showMessage("Salary Table", buffer.toString());
+
+                    }
+                }
+        );
     }
 
     public void viewAllSkills(){
