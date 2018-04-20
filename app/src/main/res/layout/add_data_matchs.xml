@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ibrahim.sqlitesoccer.addData">
+
+    <EditText
+        android:id="@+id/editText_mid"
+        inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="MATCH ID" />
+
+    <EditText
+        android:id="@+id/editText_tid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="TEAM ID 1"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_tid2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="TEAM ID 2"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_ref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="REFEREE"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_hsco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="HOME SCORE"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_asco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="AWAY SCORE"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="DATE (mmddyyyy)"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_stadium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="STADIUM"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button_addmatch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD MATCH TO MATCH TABLE" />
+</LinearLayout>

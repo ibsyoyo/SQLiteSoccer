@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonviewskillsprofile;
     Button buttonviewsalaryprofile;
     Button buttonviewleagueprofile;
+    Button buttonviewmatchprofile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,41 @@ public class MainActivity extends AppCompatActivity {
         viewAllSalary();
         buttonviewleagueprofile = findViewById(R.id.buttonviewleague);
         viewAllLeague();
+
+        buttonviewmatchprofile = findViewById(R.id.buttonviewmatchs);
+        viewAllMatchs();
+    }
+    public void viewAllMatchs(){
+        buttonviewmatchprofile.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Cursor results = myDb.getAllDataMatchs();
+                        if(results.getCount() == 0 ){
+                            //show message
+                            showMessage("Error", "Nothing Found");
+                            return;
+                        }
+
+                        StringBuffer buffer = new StringBuffer();
+                        while (results.moveToNext()){
+                            buffer.append("match_id : " + results.getString(0) + "\n");
+                            buffer.append("home_team : " + results.getString(1) + "\n");
+                            buffer.append("away_team : " + results.getString(2) + "\n");
+                            buffer.append("ref : " + results.getString(3) + "\n");
+                            buffer.append("home goals : " + results.getString(4) + "\n");
+                            buffer.append("away goals : " + results.getString(5) + "\n");
+                            buffer.append("date : " + results.getString(6) + "\n");
+                            buffer.append("stadium : " + results.getString(7) + "\n\n");
+
+                        }
+
+                        //show all data from skills
+                        showMessage("Match Table", buffer.toString());
+
+                    }
+                }
+        );
     }
 
     public void viewAllLeague(){
@@ -233,6 +269,13 @@ public class MainActivity extends AppCompatActivity {
     public void onClickaddleague(View v) {
         if (v.getId() == R.id.gotoaddleague){
             Intent intent = new Intent(this, addDataLeague.class);
+            startActivity(intent);
+        }
+
+    }
+    public void onClickaddmatch(View v) {
+        if (v.getId() == R.id.gotoaddmatch){
+            Intent intent = new Intent(this, addDataMatchs.class);
             startActivity(intent);
         }
 

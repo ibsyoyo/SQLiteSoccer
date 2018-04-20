@@ -29,6 +29,7 @@
         <activity android:name=".skillsAnalytics"></activity>
         <activity android:name=".addDataSalary"></activity>
         <activity android:name=".addDataLeague"></activity>
+        <activity android:name=".addDataMatchs"></activity>
 
 
     </application>
