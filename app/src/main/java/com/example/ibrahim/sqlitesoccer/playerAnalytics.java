@@ -63,9 +63,9 @@ public class playerAnalytics extends AppCompatActivity {
     //Find the names of players who do not have a team
     public void onEnterP2(View v){
         if (v.getId() == R.id.enterP2) {
-            query = SELECT+" player_table.player_name " +
+            query = SELECT+" player_name " +
                     FROM+"  players_table " +
-                    WHERE+" player_table.team_id = NULL;";
+                    WHERE+" team_id = 0;";
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
