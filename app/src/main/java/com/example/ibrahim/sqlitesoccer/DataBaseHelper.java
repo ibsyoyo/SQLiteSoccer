@@ -111,7 +111,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + "FOREIGN KEY("+COL_3m+") REFERENCES "+TABLE_TEAM+" ("+COL_1t+"));";
 
     public DataBaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 5);
+        super(context, DATABASE_NAME, null, 6);
 
     }
 
