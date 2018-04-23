@@ -39,7 +39,7 @@ public class teamAnalytics extends AppCompatActivity{
         if (v.getId() == R.id.enter1) {
             EditText team = (EditText)findViewById(R.id.editTextQuery1);
             String teamstr = team.getText().toString();
-            query = SELECT + " AVG(skills_table.overall_rating) team_overall "
+            query = SELECT + " AVG(overall_rating) team_overall "
                     + FROM + "skills_table JOIN player_table ON skills_table.player_id = player_table.player_id JOIN team_table ON player_table.player_id = team_table.player_id "
                     + HAVING + " team_table.team_name = " + teamstr;
             Cursor results = helper.getSpecifiedData(query);
