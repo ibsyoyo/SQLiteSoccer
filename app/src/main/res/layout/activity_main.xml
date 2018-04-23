@@ -46,6 +46,13 @@
         android:text="Click Here to add a League Profile" />
 
     <Button
+        android:id="@+id/gotoaddmatch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickaddmatch"
+        android:text="Click Here to add a Match Profile" />
+
+    <Button
         android:id="@+id/buttonviewplayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,16 +71,22 @@
         android:text="View Skills Profiles" />
 
     <Button
+        android:id="@+id/buttonviewleague"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View League Profiles" />
+
+    <Button
         android:id="@+id/buttonviewsalary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View Salary Profiles" />
 
     <Button
-        android:id="@+id/buttonviewleague"
+        android:id="@+id/buttonviewmatchs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View League Profiles" />
+        android:text="View Match Profiles" />
 
     <Button
         android:id="@+id/analytics_button"
