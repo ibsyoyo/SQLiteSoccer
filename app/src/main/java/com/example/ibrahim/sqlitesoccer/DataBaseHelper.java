@@ -111,7 +111,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + "FOREIGN KEY("+COL_3m+") REFERENCES "+TABLE_TEAM+" ("+COL_1t+"));";
 
     public DataBaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 5);
+        super(context, DATABASE_NAME, null, 6);
 
     }
 
@@ -162,9 +162,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         this.db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(COL_2, playername);
+        contentValues.put(COL_2, teamid);
         contentValues.put(COL_3, jerseynum);
-        contentValues.put(COL_4, teamid);
+        contentValues.put(COL_4, playername);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1)
