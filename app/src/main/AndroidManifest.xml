@@ -26,7 +26,6 @@
         <activity android:name=".playerAnalytics"></activity>
         <activity android:name=".matchAnalytics"></activity>
         <activity android:name=".leagueAnalytics"></activity>
-        <activity android:name=".skillsAnalytics"></activity>
         <activity android:name=".addDataSalary"></activity>
         <activity android:name=".addDataLeague"></activity>
 

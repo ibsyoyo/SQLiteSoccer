@@ -35,7 +35,7 @@ public class addDataLeague extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean isInserted = myDb.insertPlayer(editleague.getText().toString() ,
+                        boolean isInserted = myDb.insertLeague(editleague.getText().toString() ,
                                 editleaguename.getText().toString(),
                                 editcountry.getText().toString() );
 

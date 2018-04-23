@@ -37,12 +37,6 @@
         android:onClick="onMatchAnalytics"
         android:text="Match Analytics" />
 
-    <Button
-        android:id="@+id/buttonSkillsAnalytics"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onSkillsAnalytics"
-        android:text="Skill Analytics" />
 
     <Button
         android:id="@+id/buttonLeagueAnalytics"

@@ -33,12 +33,6 @@ public class analyticsHome extends AppCompatActivity {
             startActivity(intent);
         }
     }
-    public void onSkillsAnalytics(View v) {
-        if (v.getId() == R.id.buttonSkillsAnalytics) {
-            Intent intent = new Intent(this, skillsAnalytics.class);
-            startActivity(intent);
-        }
-    }
     public void onLeagueAnalytics(View v) {
         if (v.getId() == R.id.buttonLeagueAnalytics) {
             Intent intent = new Intent(this, leagueAnalytics.class);

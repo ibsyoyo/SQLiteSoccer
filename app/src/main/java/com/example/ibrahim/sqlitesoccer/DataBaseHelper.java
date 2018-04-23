@@ -257,12 +257,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor results = this.db.rawQuery("select * from " + TABLE_TEAM, null );
         return results;
     }
-    public Cursor getSpecifiedData(String query){
-        SELECT_QUERY = query;
-        this.db = this.getWritableDatabase();
-        Cursor result = this.db.rawQuery(query, null);
-        return result;
-    }
 
     public Cursor getAllDataSkills(){
         this.db = this.getWritableDatabase();
@@ -284,6 +278,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor results = this.db.rawQuery("select * from " + TABLE_LEAGUE, null );
         return results;
     }
+    public Cursor getSpecifiedData(String query){
+        this.db = this.getWritableDatabase();
 
+        Cursor results = this.db.rawQuery(query, null);
+        return results;
+    }
 
 }
