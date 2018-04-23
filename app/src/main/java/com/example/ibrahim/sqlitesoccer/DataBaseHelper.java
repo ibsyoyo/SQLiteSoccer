@@ -51,8 +51,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COL_2l = "league_name";
     private static final String COL_3l = "country";
 
-    //table matchs
-    private static final String TABLE_MATCHS ="matchs_table";
+    //table match
+    private static final String TABLE_MATCHS ="match_table";
     private static final String COL_1m = "match_id";
     private static final String COL_2m = "team_id1";
     private static final String COL_3m = "team_id2";
@@ -110,7 +110,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + "FOREIGN KEY("+COL_3m+") REFERENCES "+TABLE_TEAM+" ("+COL_1t+"));";
 
     public DataBaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 4);
+        super(context, DATABASE_NAME, null, 5);
 
     }
 

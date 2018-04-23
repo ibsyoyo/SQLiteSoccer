@@ -35,9 +35,9 @@ public class teamAnalytics extends AppCompatActivity{
     }
     //Enter a team for overall rating
     public void onEnter1(View v){
+        if (v.getId() == R.id.enter1) {
         EditText team = (EditText)findViewById(R.id.editTextQuery1);
         String teamstr = team.getText().toString();
-        if (v.getId() == R.id.enter1) {
             query = SELECT+" AVG(skills_table.overall_rating) team_overall "
                     + FROM +"skills_table JOIN player_table ON skills_table.player_id = player_table.player_id JOIN team_table ON player_table.player_id = team_table.player_id "
                     + HAVING+" team_table.team_name = " + teamstr;
@@ -100,8 +100,8 @@ public class teamAnalytics extends AppCompatActivity{
             String teamstr = team.getText().toString();
             if (v.getId() == R.id.enter3) {
                 query = SELECT + " won AS w, lose AS l, draw AS d"
-                + FROM + " team_table, "
-                + WHERE + " team_name = " + teamstr;
+                        + FROM + " team_table, "
+                        + WHERE + " team_name = " + teamstr;
                 Cursor results = helper.getSpecifiedData(query);
                 if(results.getCount() == 0 ){
                     //show message

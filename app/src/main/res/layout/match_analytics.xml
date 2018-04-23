@@ -100,11 +100,11 @@
                 android:text="Enter a date to see the goals of each match on that date" />
 
             <EditText
-                android:id="@+id/editTextQuery3"
+                android:id="@+id/editTextQuerym4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="date" />
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/enterM4"
