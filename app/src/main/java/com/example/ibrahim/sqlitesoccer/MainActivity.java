@@ -205,9 +205,9 @@ public class MainActivity extends AppCompatActivity {
                        StringBuffer buffer = new StringBuffer();
                         while (results.moveToNext()){
                             buffer.append("player_id : " + results.getString(0) + "\n");
-                            buffer.append("player_name : " + results.getString(1) + "\n");
+                            buffer.append("team_id : " + results.getString(1) + "\n");
                             buffer.append("jersey_num : " + results.getString(2) + "\n");
-                            buffer.append("team_id : " + results.getString(3) + "\n\n");
+                            buffer.append("player_name : " + results.getString(3) + "\n\n");
 
                         }
 
