@@ -33,13 +33,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COL_5t = "draw";
     private static final String COL_6t = "loss";
 
-   // public static final String DATABASE_SKILLS = "Skills.db";
+    // public static final String DATABASE_SKILLS = "Skills.db";
     private static final String TABLE_SKILLS = "skills_table";
     private static final String COL_1s = "player_id";
     private static final String COL_2s = "ovr_rate";
     private static final String COL_3s = "att_rate";
-    private static final String COL_4s= "def_rate";
-    private static final String COL_5s= "position";
+    private static final String COL_4s = "def_rate";
+    private static final String COL_5s = "position";
 
     // table skill
     private static final String TABLE_SALARY = "salary_table";
@@ -53,7 +53,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COL_3l = "country";
 
     //table match
-    private static final String TABLE_MATCHS ="match_table";
+    private static final String TABLE_MATCHS = "match_table";
     private static final String COL_1m = "match_id";
     private static final String COL_2m = "team_id1";
     private static final String COL_3m = "team_id2";
@@ -69,7 +69,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + COL_2 + " INTEGER, "
             + COL_3 + " TEXT, "
             + COL_4 + " INTEGER, "
-            + " FOREIGN KEY("+COL_2+") REFERENCES "+TABLE_TEAM+" ("+COL_1t+"));";
+            + " FOREIGN KEY(" + COL_2 + ") REFERENCES " + TABLE_TEAM + " (" + COL_1t + "));";
 
     private static final String CREATE_TEAM_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_TEAM + "("
             + COL_1t + " INTEGER PRIMARY KEY, "
@@ -78,7 +78,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + COL_4t + " INTEGER, "
             + COL_5t + " INTEGER, "
             + COL_6t + " INTEGER, "
-            + " FOREIGN KEY("+COL_2t+") REFERENCES "+TABLE_LEAGUE+" ("+COL_1l+"));";
+            + " FOREIGN KEY(" + COL_2t + ") REFERENCES " + TABLE_LEAGUE + " (" + COL_1l + "));";
 
     private static final String CREATE_SKILLS_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_SKILLS + "("
             + COL_1s + " INTEGER PRIMARY KEY, "
@@ -86,19 +86,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + COL_3s + " INTEGER, "
             + COL_4s + " INTEGER, "
             + COL_5s + " TEXT,"
-            + " FOREIGN KEY("+COL_1s+") REFERENCES "+TABLE_NAME+" ("+COL_1+"));";
+            + " FOREIGN KEY(" + COL_1s + ") REFERENCES " + TABLE_NAME + " (" + COL_1 + "));";
 
     private static final String CREATE_SALARY_TABLE = "CREATE TABLE " + TABLE_SALARY + "("
             + COL_1sa + " INTEGER PRIMARY KEY, "
-            + COL_2sa  + " INTEGER,"
-            + " FOREIGN KEY("+COL_1sa+") REFERENCES "+TABLE_NAME+" ("+COL_1+"));";
+            + COL_2sa + " INTEGER,"
+            + " FOREIGN KEY(" + COL_1sa + ") REFERENCES " + TABLE_NAME + " (" + COL_1 + "));";
 
-    private static final String CREATE_LEAGUE_TABLE = "CREATE TABLE IF NOT EXISTS "+TABLE_LEAGUE+"("
+    private static final String CREATE_LEAGUE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_LEAGUE + "("
             + COL_1l + " INTEGER PRIMARY KEY, "
             + COL_2l + " TEXT, "
             + COL_3l + " TEXT)";
 
-    private static final String CREATE_MATCHS_TABLE = "CREATE TABLE IF NOT EXISTS "+TABLE_MATCHS+"("
+    private static final String CREATE_MATCHS_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_MATCHS + "("
             + COL_1m + " INTEGER PRIMARY KEY, "
             + COL_2m + " INTEGER, "
             + COL_3m + " INTEGER, "
@@ -107,8 +107,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + COL_6m + " INTEGER, "
             + COL_7m + " INTEGER, "
             + COL_8m + " TEXT, "
-            + "FOREIGN KEY("+COL_2m+") REFERENCES "+TABLE_TEAM+" ("+COL_1t+"), "
-            + "FOREIGN KEY("+COL_3m+") REFERENCES "+TABLE_TEAM+" ("+COL_1t+"));";
+            + "FOREIGN KEY(" + COL_2m + ") REFERENCES " + TABLE_TEAM + " (" + COL_1t + "), "
+            + "FOREIGN KEY(" + COL_3m + ") REFERENCES " + TABLE_TEAM + " (" + COL_1t + "));";
 
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 6);
@@ -130,12 +130,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAM);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKILLS);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SALARY);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_LEAGUE);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_MATCHS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAM);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKILLS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SALARY);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LEAGUE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MATCHS);
         onCreate(db);
 
     }
@@ -152,7 +152,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_6t, loss);
 
         long result = db.insert(TABLE_TEAM, null, contentValues);
-        if(result == -1)
+        if (result == -1)
             return false;
         else
             return true;
@@ -167,7 +167,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_4, playername);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if(result == -1)
+        if (result == -1)
             return false;
         else
             return true;
@@ -182,7 +182,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
         long result = db.insert(TABLE_SALARY, null, contentValues);
-        if(result == -1)
+        if (result == -1)
             return false;
         else
             return true;
@@ -199,7 +199,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_5s, pos);
 
         long result = db.insert(TABLE_SKILLS, null, contentValues);
-        if(result == -1)
+        if (result == -1)
             return false;
         else
             return true;
@@ -220,7 +220,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_8m, stadium);
 
         long result = db.insert(TABLE_MATCHS, null, contentValues);
-        if(result == -1)
+        if (result == -1)
             return false;
         else
             return true;
@@ -235,60 +235,59 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_3l, country);
 
         long result = db.insert(TABLE_LEAGUE, null, contentValues);
-        if(result == -1)
+        if (result == -1)
             return false;
         else
             return true;
     }
 
 
-
-
-
-    public Cursor getAllData(){
+    public Cursor getAllData() {
         this.db = this.getWritableDatabase();
 
-        Cursor results = this.db.rawQuery("select * from " + TABLE_NAME, null );
+        Cursor results = this.db.rawQuery("select * from " + TABLE_NAME, null);
         return results;
     }
 
-    public Cursor getAllDataTeam(){
+    public Cursor getAllDataTeam() {
         this.db = this.getWritableDatabase();
 
-        Cursor results = this.db.rawQuery("select * from " + TABLE_TEAM, null );
+        Cursor results = this.db.rawQuery("select * from " + TABLE_TEAM, null);
         return results;
     }
 
-    public Cursor getAllDataSkills(){
+    public Cursor getAllDataSkills() {
         this.db = this.getWritableDatabase();
 
-        Cursor results = this.db.rawQuery("select * from " + TABLE_SKILLS, null );
+        Cursor results = this.db.rawQuery("select * from " + TABLE_SKILLS, null);
         return results;
     }
 
-    public Cursor getAllDataSalary(){
+    public Cursor getAllDataSalary() {
         this.db = this.getWritableDatabase();
 
-        Cursor results = this.db.rawQuery("select * from " + TABLE_SALARY, null );
+        Cursor results = this.db.rawQuery("select * from " + TABLE_SALARY, null);
         return results;
     }
 
-    public Cursor getAllDataLeague(){
+    public Cursor getAllDataLeague() {
         this.db = this.getWritableDatabase();
 
-        Cursor results = this.db.rawQuery("select * from " + TABLE_LEAGUE, null );
+        Cursor results = this.db.rawQuery("select * from " + TABLE_LEAGUE, null);
         return results;
     }
-    public Cursor getSpecifiedData(String query){
+
+    public Cursor getAllDataMatchs() {
+        this.db = this.getWritableDatabase();
+
+        Cursor results = this.db.rawQuery("select * from " + TABLE_MATCHS, null);
+        return results;
+    }
+
+    public Cursor getSpecifiedData(String query) {
         this.db = this.getWritableDatabase();
 
         Cursor results = this.db.rawQuery(query, null);
-        return results;
-    }
-    public Cursor getAllDataMatchs(){
-        this.db = this.getWritableDatabase();
-
-        Cursor results = this.db.rawQuery("select * from " + TABLE_MATCHS, null );
         return results;
     }
 

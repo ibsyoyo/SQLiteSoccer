@@ -38,9 +38,14 @@ public class playerAnalytics extends AppCompatActivity {
         if (v.getId() == R.id.enterP1) {
             EditText player = (EditText)findViewById(R.id.editTextQueryp1);
             String playerstr = player.getText().toString();
-            query = SELECT+" team_id " +
-                    FROM+" player_table " +
-                    WHERE+" player_name = "+ playerstr+";";
+            query =
+                    SELECT + " team_name " +
+                    FROM + " team_table " +
+                    WHERE + " team_id = " +
+                    "(" + SELECT+" team_id " +
+                    FROM+" players_table " +
+                    //something is wrong here by = sign. this is what the debugger says.
+                    WHERE + " player_name = '"+playerstr+"' );";
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
