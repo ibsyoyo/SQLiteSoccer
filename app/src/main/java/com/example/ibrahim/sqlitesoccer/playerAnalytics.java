@@ -38,9 +38,9 @@ public class playerAnalytics extends AppCompatActivity {
         if (v.getId() == R.id.enterP1) {
             EditText player = (EditText)findViewById(R.id.editTextQueryp1);
             String playerstr = player.getText().toString();
-            query = SELECT+" player_table.team_id " +
+            query = SELECT+" team_id " +
                     FROM+" player_table " +
-                    WHERE+" player_table.player_name = "+ playerstr+";";
+                    WHERE+" player_name = "+ playerstr+";";
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
@@ -90,10 +90,10 @@ public class playerAnalytics extends AppCompatActivity {
         if (v.getId() == R.id.enterP3) {
             EditText player = (EditText)findViewById(R.id.editTextQueryP2);
             String playerstr = player.getText().toString();
-            query = SELECT+" league_table.country " +
-                    FROM+" league_table JOIN team_table ON league_table.leag_id = team_table.leag_id JOIN player_table " +
-                    "ON player_table.team_id = team_table.team_id " +
-                    WHERE+" player_table.player_name = "+playerstr+";";
+            query = SELECT+" country " +
+                    FROM+" league_table league JOIN team_table team ON league.leag_id = team.leag_id JOIN player_table player" +
+                    "ON player.team_id = team.team_id " +
+                    WHERE+" player_name = "+playerstr+";";
 
 
             Cursor results = helper.getSpecifiedData(query);
@@ -118,9 +118,9 @@ public class playerAnalytics extends AppCompatActivity {
         if (v.getId() == R.id.enterP4) {
             EditText player = (EditText)findViewById(R.id.editTextQueryP3);
             String playerstr = player.getText().toString();
-            query = SELECT+" (salary_table.salary)/26 AS salary_per_week " +
-                    FROM+" salary_table JOIN player_table ON salary_table.player_id = player_table.player_id " +
-                    WHERE+" player_table.player_name = " +playerstr +";";
+            query = SELECT+" salary/26 AS salary_per_week " +
+                    FROM+" salary_table salary JOIN player_table player ON salary.player_id = player.player_id " +
+                    WHERE+" player_name = " +playerstr +";";
 
 
 
@@ -146,10 +146,10 @@ public class playerAnalytics extends AppCompatActivity {
         if (v.getId() == R.id.enterP5) {
             EditText player = (EditText)findViewById(R.id.editTextQueryP4);
             String playerstr = player.getText().toString();
-            query = SELECT+" player_table.player_name, player_table.jersey_num, player_table.player_id, " +
-                        "skills_table.overall_rating, skills_table.position "+
-                    FROM+" player_table JOIN skills_table ON player_table.player_id = skills_table.player_id " +
-                    WHERE+" player_table.player_name = " +playerstr +";";
+            query = SELECT+" player_name, jersey_num, player_id, " +
+                        "overall_rating, position "+
+                    FROM+" player_table player JOIN skills_table skills ON player.player_id = skills.player_id " +
+                    WHERE+" player_name = " +playerstr +";";
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){

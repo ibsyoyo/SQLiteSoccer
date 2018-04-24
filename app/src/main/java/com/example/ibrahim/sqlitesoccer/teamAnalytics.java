@@ -41,7 +41,7 @@ public class teamAnalytics extends AppCompatActivity{
             String teamstr = team.getText().toString();
             query = SELECT + " AVG(overall_rating) team_overall "
                     + FROM + "skills_table JOIN player_table ON skills_table.player_id = player_table.player_id JOIN team_table ON player_table.player_id = team_table.player_id "
-                    + HAVING + " team_table.team_name = " + teamstr;
+                    + HAVING + " team_name = " + teamstr;
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
                 //show message
@@ -70,10 +70,10 @@ public class teamAnalytics extends AppCompatActivity{
             EditText team2 = (EditText)findViewById(R.id.editTextQuery2Team2);
             String teamstr2 = team2.getText().toString();
             query = "CREATE VIEW same_match_up AS " +
-                        SELECT + "match_table.match_id" +
-                        FROM + "team_table AS t1, team_table AS t2, match_table" +
-                        WHERE + "t1.team_id <> t2.team_id AND (t1.team_id = match.team_id1 OR t1.team_id = match_table.team_id2) " +
-                        "AND (t2.team_id = match_table.team_id1 OR t2.team_id = match_table.team_id2);" +
+                        SELECT + "match_id" +
+                        FROM + "team_table AS t1, team_table AS t2, match_table AS match" +
+                        WHERE + "t1.team_id <> t2.team_id AND (t1.team_id = match.team_id1 OR t1.team_id = match.team_id2) " +
+                        "AND (t2.team_id = match.team_id1 OR t2.team_id = match.team_id2);" +
                         "\n" +
                         SELECT + "COUNT(*) " +
                         FROM + " same_match_up;";
@@ -131,9 +131,9 @@ public class teamAnalytics extends AppCompatActivity{
             String teamstr = team.getText().toString();
             String datestr = team.getText().toString();
             if (v.getId() == R.id.enter1) {
-                query = SELECT+" AVG(skills_table.overall_rating) team_overall "
+                query = SELECT+" AVG(overall_rating) team_overall "
                         + FROM +"skills_table JOIN player_table ON skills_table.player_id = player_table.player_id JOIN team_table ON player_table.player_id = team_table.player_id "
-                        + HAVING+" team_table.team_name = " + teamstr;
+                        + HAVING+" team_name = " + teamstr;
                 Cursor results = helper.getSpecifiedData(query);
                 if(results.getCount() == 0 ){
                     //show message
@@ -159,10 +159,10 @@ public class teamAnalytics extends AppCompatActivity{
             EditText team = (EditText)findViewById(R.id.editTextQuery5);
             String teamstr = team.getText().toString();
             if (v.getId() == R.id.enter5) {
-                query = SELECT +" salary_table.salary, player_table.player_name "
+                query = SELECT +" salary, player_name "
                     + FROM +" salary_table JOIN player_table ON salary_table.player_id = player_table.player_id "
-                    + WHERE +" player_table.team_id = "+ teamstr
-                    + GROUP_BY + " player_table.player_name, salary_table.salary;";
+                    + WHERE +" team_id = "+ teamstr
+                    + GROUP_BY + " player_name, salary;";
 
                 Cursor results = helper.getSpecifiedData(query);
                 if(results.getCount() == 0 ){
@@ -188,9 +188,9 @@ public class teamAnalytics extends AppCompatActivity{
     //Press enter to see what team has the most amount of wins
     public void onEnter6(View v){
         if (v.getId() == R.id.enter6) {
-            query =SELECT + "team_table.team_name" +
+            query =SELECT + "team_name" +
                     FROM +"team_table" +
-                    WHERE +"team_table.won = ("+SELECT+" MAX(won) "+FROM+" team_table);";
+                    WHERE +"won = ("+SELECT+" MAX(won) "+FROM+" team_table);";
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
@@ -214,9 +214,9 @@ public class teamAnalytics extends AppCompatActivity{
         if (v.getId() == R.id.enter7) {
             EditText team = (EditText)findViewById(R.id.editTextQuery6);
             String teamstr = team.getText().toString();
-            query = SELECT +" player_table.player_name " +
+            query = SELECT +" player_name " +
                     FROM +" player_table JOIN team_table ON player_table.team_id = team_table.team_id JOIN skills_table ON player_table.player_id = skills_table.player_id" +
-                    WHERE +" skills_table.def_rating = ("+SELECT+" MAX(skills_rating.def_rating) "+FROM+" skills) AND team.team_name = "+teamstr +";";
+                    WHERE +" def_rating = ("+SELECT+" MAX(def_rating) "+FROM+" skills_table) AND team_name = "+teamstr +";";
 
 
             Cursor results = helper.getSpecifiedData(query);
@@ -241,10 +241,10 @@ public class teamAnalytics extends AppCompatActivity{
         if (v.getId() == R.id.enter8) {
             EditText stadium = (EditText)findViewById(R.id.editTextQuery7);
             String stadiumstr = stadium.getText().toString();
-            query = SELECT+" team_table.team_name " +
+            query = SELECT+" team_name " +
                     FROM +" team_table, match_table " +
-                    WHERE+" (team_table.team_id = match_table.team_id1 OR team_table.team_id = match_table.team_id2) " +
-                        "AND match_table.stadium <> " + stadiumstr + ";";
+                    WHERE+" (team_id = team_id1 OR team_id = team_id2) " +
+                        "AND stadium <> " + stadiumstr + ";";
 
 
             Cursor results = helper.getSpecifiedData(query);
@@ -267,10 +267,10 @@ public class teamAnalytics extends AppCompatActivity{
     //Press enter to find how many teams have more than 3 strikers
     public void onEnter9(View v) {
         if(v.getId()== R.id.enter9) {
-            query = SELECT+" COUNT(skills.position) AS count_st, team.team_name " +
+            query = SELECT+" COUNT(position) AS count_st, team_name " +
                     FROM+" team_table JOIN player_table ON team_table.team_id = player_table.team_id JOIN skills_table ON player_table.player_id = skills_table.player_id " +
-                    WHERE+" skills_table.position = st " +
-                    GROUP_BY+" team_table.team_name " +
+                    WHERE+" position = st " +
+                    GROUP_BY+" team_name " +
                     HAVING+" count_st >3;";
 
 

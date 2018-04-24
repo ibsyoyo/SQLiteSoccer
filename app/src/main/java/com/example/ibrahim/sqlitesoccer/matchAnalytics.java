@@ -38,7 +38,7 @@ public class matchAnalytics extends AppCompatActivity {
         if (v.getId() == R.id.enterM1) {
             EditText date = (EditText)findViewById(R.id.editTextQuerym1);
             String datestr = date.getText().toString();
-            query = SELECT+" team.team_id " +
+            query = SELECT+" team_id " +
                     FROM+" team_tables, match_table " +
                     WHERE+" (team_table.team_id = match_table.team_id1 OR team_table.team_id = match_table.team_id2) " +
                     "AND match_table.date = " +datestr + ";";
@@ -67,9 +67,9 @@ public class matchAnalytics extends AppCompatActivity {
         if (v.getId() == R.id.enterM2) {
             EditText ref = (EditText)findViewById(R.id.editTextQuerym2);
             String refstr = ref.getText().toString();
-            query = SELECT+" COUNT(match_table.ref) " +
+            query = SELECT+" COUNT(referee) " +
                     FROM+" match_table " +
-                    WHERE+" match_table.ref = " + refstr + ";";
+                    WHERE+" referee = " + refstr + ";";
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
                 //show message
@@ -100,7 +100,7 @@ public class matchAnalytics extends AppCompatActivity {
 
             query = SELECT+" stadium " +
                     FROM+" match_table " +
-                    WHERE+" match_table.team_id1 = "+ team1str +" AND match_table.team_id2 = "+ team2str+";";
+                    WHERE+" team_id1 = "+ team1str +" AND team_id2 = "+ team2str+";";
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
@@ -126,10 +126,10 @@ public class matchAnalytics extends AppCompatActivity {
             EditText date = (EditText)findViewById(R.id.editTextQuerym4);
             String datestr = date.getText().toString();
 
-            query = SELECT+" match_table.id1_score + match_table.id2_score AS goals, match_table.match_id " +
+            query = SELECT+" id1_score + id2_score AS goals, match_id " +
                     FROM+" match_table " +
-                    WHERE+" match_table.date = " +datestr + " " +
-                    GROUP_BY+" match_table.match_id, goals;";
+                    WHERE+" date = " +datestr + " " +
+                    GROUP_BY+" match_id, goals;";
             ;
 
             Cursor results = helper.getSpecifiedData(query);
@@ -153,9 +153,9 @@ public class matchAnalytics extends AppCompatActivity {
     //How many games did each referee officiate
     public void onEnterM5(View v){
         if (v.getId() == R.id.enterM5) {
-            query = SELECT+" COUNT(match.referee), match_table.referee " +
+            query = SELECT+" COUNT(referee), referee " +
                     FROM+" match_table "+
-                    GROUP_BY+" match_table.referee;";
+                    GROUP_BY+" referee;";
 
 
             Cursor results = helper.getSpecifiedData(query);

@@ -37,9 +37,9 @@ public class leagueAnalytics extends AppCompatActivity {
         if(v.getId() == R.id.enterL1) {
             EditText league = (EditText)findViewById(R.id.editTextQueryl1);
             String leaguestr = league.getText().toString();
-                query = SELECT+" player_table.player_name " +
-                        FROM+" player_table JOIN team_table ON player_table.team_id = team_table.team_id JOIN league_table ON team_table.leag_id = league_table.leag_id JOIN "+
-                        "skills_table ON player_table.player_id = skills_table.player_id " +
+                query = SELECT+" player_name " +
+                        FROM+" player_table player JOIN team_table team ON player.team_id = team.team_id JOIN league_table league ON team.leag_id = league.leag_id JOIN "+
+                        "skills_table skills ON player.player_id = skills.player_id " +
                         WHERE+" overall_rating = ("+SELECT+" MAX(overall_rating) "+FROM+" skills_table) AND leag_name = "+ leaguestr;
                 Cursor results = helper.getSpecifiedData(query);
                 if(results.getCount() == 0 ){
@@ -64,9 +64,9 @@ public class leagueAnalytics extends AppCompatActivity {
         if (v.getId() == R.id.enterL2) {
             EditText league = (EditText)findViewById(R.id.editTextQueryl2);
             String leaguestr = league.getText().toString();
-            query = SELECT+" COUNT(team_table.team_id) " +
-                    FROM+" team_table JOIN league_table ON team_table.leag_id = league_table.leag_id " +
-                    WHERE+" league_table.leag_name = "+leaguestr +";";
+            query = SELECT+" COUNT(team_id) " +
+                    FROM+" team_table team JOIN league_table league ON team.leag_id = league.leag_id " +
+                    WHERE+" leag_name = "+leaguestr +";";
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
@@ -89,9 +89,9 @@ public class leagueAnalytics extends AppCompatActivity {
     //What league does each team play in
     public void onEnterL3(View v){
         if (v.getId() == R.id.enterL3) {
-            query = SELECT+" team_table.team_name, league_table.leag_name " +
-                    FROM+" team_table JOIN league_table ON team_table.leag_id = league_table.leag_id " +
-                    GROUP_BY+" league_table.leag_name, team_table.team_name;";
+            query = SELECT+" team_name, leag_name " +
+                    FROM+" team_table team JOIN league_table leagueON team.leag_id = league.leag_id " +
+                    GROUP_BY+" leag_name, team_name;";
             ;
 
             Cursor results = helper.getSpecifiedData(query);
