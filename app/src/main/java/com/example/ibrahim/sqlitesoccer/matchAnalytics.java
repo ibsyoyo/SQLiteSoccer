@@ -39,9 +39,9 @@ public class matchAnalytics extends AppCompatActivity {
             EditText date = (EditText)findViewById(R.id.editTextQuerym1);
             String datestr = date.getText().toString();
             query = SELECT+" team_id " +
-                    FROM+" team_tables, match_table " +
-                    WHERE+" (team_table.team_id = match_table.team_id1 OR team_table.team_id = match_table.team_id2) " +
-                    "AND match_table.date = " +datestr + ";";
+                    FROM+" team_tables team , match_table match " +
+                    WHERE+" (team_id = team_id1 OR team_id = team_id2) " +
+                    "AND date = " +datestr + ";";
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
                 //show message
