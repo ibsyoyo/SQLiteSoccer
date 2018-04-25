@@ -70,13 +70,14 @@
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter two teams to see where they have played each other" />
+                android:text="Enter two team ID's to see where they have played each other" />
 
             <EditText
                 android:id="@+id/editTextQuerym3a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Home ID"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -84,6 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Away ID"
                 android:inputType="textPersonName" />
 
             <Button

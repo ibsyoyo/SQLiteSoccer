@@ -158,7 +158,7 @@ public class teamAnalytics extends AppCompatActivity{
     }
         //Enter a team to see the salary of all the player
         public void onEnter5(View v){
-            EditText team = (EditText)findViewById(R.id.editTextQuery5);
+            EditText team = (EditText)findViewById(R.id.editTextQuery4);
             String teamstr = team.getText().toString();
             if (v.getId() == R.id.enter5) {
                 query = SELECT +" player_name, salary "
@@ -189,9 +189,9 @@ public class teamAnalytics extends AppCompatActivity{
     //Press enter to see what team has the most amount of wins
     public void onEnter6(View v){
         if (v.getId() == R.id.enter6) {
-            query =SELECT + "team_name" +
-                    FROM +"team_table" +
-                    WHERE +"won = ("+SELECT+" MAX(won) "+FROM+" team_table);";
+            query =SELECT + " team_name " +
+                    FROM +" team_table " +
+                    WHERE +" win = ("+SELECT+" MAX(win) "+FROM+" team_table);";
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
@@ -269,8 +269,8 @@ public class teamAnalytics extends AppCompatActivity{
     public void onEnter9(View v) {
         if(v.getId()== R.id.enter9) {
             query = SELECT+" COUNT(position) AS count_st, team_name " +
-                    FROM+" team_table team JOIN players_table player JOIN skills_table skills " +
-                    WHERE+" position = st " +
+                    FROM+" team_table team NATURAL JOIN players_table player NATURAL JOIN skills_table skills " +
+                    WHERE+" position = 'st' " +
                     GROUP_BY+" team_name " +
                     HAVING+" count_st >3;";
 
@@ -286,6 +286,7 @@ public class teamAnalytics extends AppCompatActivity{
             StringBuffer buffer = new StringBuffer();
             while (results.moveToNext()){
                 buffer.append("Team with more than 3 strikers : " + results.getString(0) + "\n");
+                buffer.append(" : " + results.getString(1)+"\n");
             }
 
             //show all data
