@@ -97,7 +97,7 @@
                 android:id="@+id/enterP4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onEnterP5"
+                android:onClick="onEnterP4"
                 android:text="Enter" />
 
             <TextView

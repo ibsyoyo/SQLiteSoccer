@@ -130,7 +130,7 @@ public class teamAnalytics extends AppCompatActivity{
             EditText date = (EditText)findViewById(R.id.editTextQuery4);
             String teamstr = team.getText().toString();
             String datestr = team.getText().toString();
-            if (v.getId() == R.id.enter1) {
+            if (v.getId() == R.id.enter4) {
                 query = SELECT+" AVG(ovr_rate) team_overall "
                         + FROM +"skills_table skills JOIN players_table player ON skills.player_id = player.player_id JOIN team_table team ON player.player_id = team.player_id "
                         + HAVING+" team_name = '" + teamstr+"';";

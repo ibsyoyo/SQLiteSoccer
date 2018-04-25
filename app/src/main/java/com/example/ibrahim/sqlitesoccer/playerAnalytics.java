@@ -145,7 +145,7 @@ public class playerAnalytics extends AppCompatActivity {
     }
 
     //What team does __ name play for, what is his number, what is player id, what is his overall rating and what is his position?
-    public void onEnterP5(View v){
+    public void onEnterP6(View v){
         if (v.getId() == R.id.enterP5) {
             EditText player = (EditText)findViewById(R.id.editTextQueryP4);
             String playerstr = player.getText().toString();
