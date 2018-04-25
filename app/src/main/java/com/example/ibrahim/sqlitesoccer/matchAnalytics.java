@@ -39,7 +39,7 @@ public class matchAnalytics extends AppCompatActivity {
             EditText date = (EditText)findViewById(R.id.editTextQuerym1);
             String datestr = date.getText().toString();
             query = SELECT+" team_id " +
-                    FROM+" team_tables team , match_table match " +
+                    FROM+" team_table team , match_table match " +
                     WHERE+" (team_id = team_id1 OR team_id = team_id2) " +
                     "AND date = " +datestr + ";";
             Cursor results = helper.getSpecifiedData(query);
@@ -51,7 +51,7 @@ public class matchAnalytics extends AppCompatActivity {
 
             StringBuffer buffer = new StringBuffer();
             while (results.moveToNext()){
-                buffer.append("team_name : " + results.getString(0) + "\n");
+                buffer.append("team_id : " + results.getString(0) + "\n");
             }
 
             //show all data
@@ -126,11 +126,11 @@ public class matchAnalytics extends AppCompatActivity {
             EditText date = (EditText)findViewById(R.id.editTextQuerym4);
             String datestr = date.getText().toString();
 
-            query = SELECT+" id1_score + id2_score AS goals, match_id " +
+            query = SELECT+" id_score1 + id_score2 AS goals, match_id " +
                     FROM+" match_table " +
                     WHERE+" date = '" +datestr + "' " +
                     GROUP_BY+" match_id, goals;";
-            ;
+
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
