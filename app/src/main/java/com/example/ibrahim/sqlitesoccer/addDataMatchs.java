@@ -2,6 +2,7 @@ package com.example.ibrahim.sqlitesoccer;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ public class addDataMatchs extends AppCompatActivity {
 
     DataBaseHelper myDb;
     EditText editmid, edittid, edittid2, editref, edithsco, editasco, editdate, editstadium;
+    String mid, tid1, tid2, ref, t1sco, t2sco, date, stadium;
     Button buttonaddmatch;
 
 
@@ -31,6 +33,15 @@ public class addDataMatchs extends AppCompatActivity {
         editdate = findViewById(R.id.editText_date);
         editstadium = findViewById(R.id.editText_stadium);
 
+        mid = editmid.getText().toString();
+        tid1 = edittid.getText().toString();
+        tid2 = edittid2.getText().toString();
+        ref = editref.getText().toString();
+        t1sco = edithsco.getText().toString();
+        t2sco = editasco.getText().toString();
+        date = editdate.getText().toString();
+        stadium = editstadium.getText().toString();
+
         buttonaddmatch = findViewById(R.id.button_addmatch);
         AddMatch();
     }
@@ -40,6 +51,38 @@ public class addDataMatchs extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if(TextUtils.isEmpty(mid)){
+                            Toast.makeText(addDataMatchs.this, "Match Id Id must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(tid1)){
+                            Toast.makeText(addDataMatchs.this, "Home team must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(tid2)){
+                            Toast.makeText(addDataMatchs.this, "Away team must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(ref)){
+                            Toast.makeText(addDataMatchs.this, "Referee must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(t1sco)){
+                            Toast.makeText(addDataMatchs.this, "Home team score must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(t2sco)){
+                            Toast.makeText(addDataMatchs.this, "Away team score must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(date)){
+                            Toast.makeText(addDataMatchs.this, "Date must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(stadium)){
+                            Toast.makeText(addDataMatchs.this, "Stadium must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
                         boolean isInserted = myDb.insertMatchs(editmid.getText().toString() ,
                                 edittid.getText().toString(),
                                 edittid2.getText().toString(),

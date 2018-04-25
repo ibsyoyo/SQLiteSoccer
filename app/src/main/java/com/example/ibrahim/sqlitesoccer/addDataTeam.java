@@ -2,6 +2,7 @@ package com.example.ibrahim.sqlitesoccer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ public class addDataTeam extends AppCompatActivity {
 
     DataBaseHelper myDb;
     EditText editteamid, editleague, editteamname, editwin, editdraw, editloss;
+    String teamid, leagueid, teamname, win, draw, loss;
     Button buttonaddteam;
 
 
@@ -30,6 +32,13 @@ public class addDataTeam extends AppCompatActivity {
         editdraw = findViewById(R.id.editText_draw);
         editloss = findViewById(R.id.editText_loss);
 
+        teamid = editteamid.getText().toString();
+        leagueid = editleague.getText().toString();
+        teamname = editteamname.getText().toString();
+        win = editwin.getText().toString();
+        draw = editdraw.getText().toString();
+        loss = editloss.getText().toString();
+
         buttonaddteam = findViewById(R.id.button_addteam);
         AddTeam();
     }
@@ -39,6 +48,29 @@ public class addDataTeam extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if(TextUtils.isEmpty(teamid)) {
+                            Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(leagueid)) {
+                            Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(teamname)) {
+                            Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(win)) {
+                            Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }if(TextUtils.isEmpty(draw)) {
+                            Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(loss)) {
+                            Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
                         boolean isInserted = myDb.insertTeam(
                                 editteamid.getText().toString() ,
                                 editleague.getText().toString(),

@@ -2,6 +2,7 @@ package com.example.ibrahim.sqlitesoccer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ public class addDataLeague extends AppCompatActivity {
 
     DataBaseHelper myDb;
     EditText editleague, editleaguename, editcountry;
+    String leagueid, leaguename, country;
     Button buttonaddleague;
 
 
@@ -26,6 +28,10 @@ public class addDataLeague extends AppCompatActivity {
         editleaguename = findViewById(R.id.editText_lname);
         editcountry = findViewById(R.id.editText_country);
 
+        leagueid = editleague.getText().toString();
+        leaguename = editleaguename.getText().toString();
+        country = editcountry.getText().toString();
+
         buttonaddleague = findViewById(R.id.button_addleague);
         AddLeague();
 
@@ -36,6 +42,18 @@ public class addDataLeague extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if(TextUtils.isEmpty(leagueid)){
+                            Toast.makeText(addDataLeague.this, "League Id must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(leaguename)){
+                            Toast.makeText(addDataLeague.this, "League Name must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(country)){
+                            Toast.makeText(addDataLeague.this, "Country must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
                         boolean isInserted = myDb.insertLeague(editleague.getText().toString() ,
                                 editleaguename.getText().toString(),
                                 editcountry.getText().toString() );

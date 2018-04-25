@@ -2,6 +2,7 @@ package com.example.ibrahim.sqlitesoccer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ public class addDataSalary extends AppCompatActivity {
 
     DataBaseHelper myDb;
     EditText editpid, editsalary;
+    String pid, salary;
     Button buttonaddsalary;
 
 
@@ -25,6 +27,9 @@ public class addDataSalary extends AppCompatActivity {
         editpid = findViewById(R.id.editText_pid);
         editsalary = findViewById(R.id.editText_salary);
 
+        pid = editpid.getText().toString();
+        salary = editsalary.getText().toString();
+
         buttonaddsalary = findViewById(R.id.button_addsalary);
         AddSalary();
     }
@@ -34,6 +39,15 @@ public class addDataSalary extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+                        if(TextUtils.isEmpty(pid)){
+                            Toast.makeText(addDataSalary.this, "Player Id Id must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(salary)) {
+                            Toast.makeText(addDataSalary.this, "Salary must be entered", Toast.LENGTH_LONG).show();
+                            return;
+                        }
                         boolean isInserted = myDb.insertSalary(editpid.getText().toString() ,
                                 editsalary.getText().toString()) ;
 
