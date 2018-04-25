@@ -95,8 +95,8 @@ public class playerAnalytics extends AppCompatActivity {
             EditText player = (EditText)findViewById(R.id.editTextQueryP2);
             String playerstr = player.getText().toString();
             query = SELECT+" country " +
-                    FROM+" league_table league JOIN team_table team JOIN player_table player" +
-                    WHERE+" player_name = "+playerstr+";";
+                    FROM+" league_table league NATURAL JOIN team_table team NATURAL JOIN players_table player " +
+                    WHERE+" player_name = '"+playerstr+"';";
 
 
             Cursor results = helper.getSpecifiedData(query);

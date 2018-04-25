@@ -38,9 +38,10 @@ public class leagueAnalytics extends AppCompatActivity {
             EditText league = (EditText)findViewById(R.id.editTextQueryl1);
             String leaguestr = league.getText().toString();
                 query = SELECT+" player_name " +
-                        FROM+" players_table player NATURAL JOIN team_table team NATURAL JOIN league_table league NATURAL JOIN "+
+                        FROM+" players_table player NATURAL JOIN "+
                         " skills_table skills " +
-                        WHERE+" ovr_rate = ("+SELECT+" MAX(ovr_rate) "+FROM+" skills_table) AND league_name = '"+ leaguestr +"';";
+                        WHERE+" ovr_rate = ("+SELECT+" MAX(ovr_rate) "+FROM+" skills_table NATURAL JOIN players_table " +
+                        "NATURAL JOIN team_table NATURAL JOIN league_table "+WHERE+" league_name = '"+leaguestr+"');";
                 Cursor results = helper.getSpecifiedData(query);
                 if(results.getCount() == 0 ){
                     //show message
