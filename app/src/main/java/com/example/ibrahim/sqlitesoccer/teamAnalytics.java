@@ -40,7 +40,7 @@ public class teamAnalytics extends AppCompatActivity{
             EditText team = (EditText)findViewById(R.id.editTextQuery1);
             String teamstr = team.getText().toString();
             query = SELECT + " AVG(ovr_rate) "
-                    + FROM + " skills_table JOIN players_table JOIN team_table "
+                    + FROM + " skills_table NATURAL JOIN players_table NATURAL JOIN team_table "
                     + WHERE + " team_name = '" + teamstr+"';";
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
