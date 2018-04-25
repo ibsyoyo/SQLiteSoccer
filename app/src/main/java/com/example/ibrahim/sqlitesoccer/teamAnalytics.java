@@ -69,16 +69,18 @@ public class teamAnalytics extends AppCompatActivity{
             String teamstr1 = team1.getText().toString();
             EditText team2 = (EditText)findViewById(R.id.editTextQuery2Team2);
             String teamstr2 = team2.getText().toString();
-            query = "CREATE VIEW same_match_up AS " +
-                        SELECT + "match_id" +
-                        FROM + "team_table AS t1, team_table AS t2, match_table AS match" +
-                        WHERE + "t1.team_id <> t2.team_id AND (t1.team_id = match.team_id1 OR t1.team_id = match.team_id2) " +
-                        "AND (t2.team_id = match.team_id1 OR t2.team_id = match.team_id2);" +
-                        "\n" +
-                        SELECT + "COUNT(*) " +
-                        FROM + " same_match_up;";
+            String queryView = "CREATE VIEW same_match_up AS " +
+                    SELECT + " DISTINCT " + "match_id" + " "+
+                    FROM + " " + "team_table" + " AS t1, " + "team_table" + " AS t2, " + "team_table" + " AS matchs " +
+                    WHERE + " t1.team_id <> t2.team_id AND (t1.team_id = matchs.team_id1 OR t1.team_id = matchs.team_id2) " +
+                    "AND (t2.team_id = matchs.team_id1 OR t2.team_id = matchs.team_id2);";
 
+            query= SELECT + "COUNT(*) " +
+                    FROM + " same_match_up JOIN match_table " +
+                    WHERE + " (team_id1 = " + teamstr1 + " AND team_id2 = " + teamstr2 + ") OR (team_id1 = " +
+                     teamstr2 + " AND team_id2 = " + teamstr1 + ");";
 
+                helper.createNewView(queryView);
                 Cursor results = helper.getSpecifiedData(query);
                 if(results.getCount() == 0 ){
                     //show message
