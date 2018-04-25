@@ -69,7 +69,7 @@ public class matchAnalytics extends AppCompatActivity {
             String refstr = ref.getText().toString();
             query = SELECT+" COUNT(referee) " +
                     FROM+" match_table " +
-                    WHERE+" referee = " + refstr + ";";
+                    WHERE+" referee = '" + refstr + "';";
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
                 //show message
@@ -79,7 +79,7 @@ public class matchAnalytics extends AppCompatActivity {
 
             StringBuffer buffer = new StringBuffer();
             while (results.moveToNext()){
-                buffer.append("count : " + results.getString(0) + "\n");
+                buffer.append(" He referee'd : " + results.getString(0) + "\n");
             }
 
             //show all data
@@ -100,7 +100,7 @@ public class matchAnalytics extends AppCompatActivity {
 
             query = SELECT+" stadium " +
                     FROM+" match_table " +
-                    WHERE+" team_id1 = "+ team1str +" AND team_id2 = "+ team2str+";";
+                    WHERE+" team_id1 = '"+ team1str +"' AND team_id2 = '"+ team2str+"';";
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
@@ -128,7 +128,7 @@ public class matchAnalytics extends AppCompatActivity {
 
             query = SELECT+" id1_score + id2_score AS goals, match_id " +
                     FROM+" match_table " +
-                    WHERE+" date = " +datestr + " " +
+                    WHERE+" date = '" +datestr + "' " +
                     GROUP_BY+" match_id, goals;";
             ;
 
@@ -167,8 +167,8 @@ public class matchAnalytics extends AppCompatActivity {
 
             StringBuffer buffer = new StringBuffer();
             while (results.moveToNext()){
-                buffer.append("count " + results.getString(0) + "\n");
-                buffer.append("referee" + results.getString(1) + "\n");
+                buffer.append("count: " + results.getString(0) + "\n");
+                buffer.append("referee: " + results.getString(1) + "\n");
             }
 
             //show all data

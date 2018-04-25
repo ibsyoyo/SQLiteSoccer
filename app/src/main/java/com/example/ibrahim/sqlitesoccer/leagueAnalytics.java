@@ -38,9 +38,9 @@ public class leagueAnalytics extends AppCompatActivity {
             EditText league = (EditText)findViewById(R.id.editTextQueryl1);
             String leaguestr = league.getText().toString();
                 query = SELECT+" player_name " +
-                        FROM+" player_table player JOIN team_table team ON player.team_id = team.team_id JOIN league_table league ON team.leag_id = league.leag_id JOIN "+
-                        "skills_table skills ON player.player_id = skills.player_id " +
-                        WHERE+" overall_rating = ("+SELECT+" MAX(overall_rating) "+FROM+" skills_table) AND leag_name = "+ leaguestr;
+                        FROM+" players_table player NATURAL JOIN team_table team NATURAL JOIN league_table league NATURAL JOIN "+
+                        " skills_table skills " +
+                        WHERE+" ovr_rate = ("+SELECT+" MAX(ovr_rate) "+FROM+" skills_table) AND league_name = '"+ leaguestr +"';";
                 Cursor results = helper.getSpecifiedData(query);
                 if(results.getCount() == 0 ){
                     //show message
@@ -65,8 +65,8 @@ public class leagueAnalytics extends AppCompatActivity {
             EditText league = (EditText)findViewById(R.id.editTextQueryl2);
             String leaguestr = league.getText().toString();
             query = SELECT+" COUNT(team_id) " +
-                    FROM+" team_table team JOIN league_table league ON team.leag_id = league.leag_id " +
-                    WHERE+" leag_name = "+leaguestr +";";
+                    FROM+" team_table NATURAL JOIN league_table league " +
+                    WHERE+" league_name = '"+leaguestr +"';";
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
@@ -89,9 +89,9 @@ public class leagueAnalytics extends AppCompatActivity {
     //What league does each team play in
     public void onEnterL3(View v){
         if (v.getId() == R.id.enterL3) {
-            query = SELECT+" team_name, leag_name " +
-                    FROM+" team_table team JOIN league_table leagueON team.leag_id = league.leag_id " +
-                    GROUP_BY+" leag_name, team_name;";
+            query = SELECT+" team_name, league_name " +
+                    FROM+" team_table team NATURAL JOIN league_table league " +
+                    GROUP_BY+" league_name, team_name;";
             ;
 
             Cursor results = helper.getSpecifiedData(query);
@@ -103,8 +103,8 @@ public class leagueAnalytics extends AppCompatActivity {
 
             StringBuffer buffer = new StringBuffer();
             while (results.moveToNext()){
-                buffer.append("leag_name : " + results.getString(0) + "\n");
-                buffer.append("team_name : " + results.getString(1) + "\n");
+                buffer.append("league_name : " + results.getString(1) + "\n");
+                buffer.append("team_name : " + results.getString(0) + "\n");
             }
 
             //show all data

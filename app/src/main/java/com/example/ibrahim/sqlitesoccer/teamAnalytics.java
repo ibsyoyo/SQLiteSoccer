@@ -39,9 +39,9 @@ public class teamAnalytics extends AppCompatActivity{
         if (v.getId() == R.id.enter1) {
             EditText team = (EditText)findViewById(R.id.editTextQuery1);
             String teamstr = team.getText().toString();
-            query = SELECT + " AVG(overall_rating) team_overall "
-                    + FROM + "skills_table skills JOIN player_table player ON skills.player_id = player.player_id JOIN team_table team ON player.player_id = team.player_id "
-                    + HAVING + " team_name = " + teamstr;
+            query = SELECT + " AVG(ovr_rate) "
+                    + FROM + " skills_table JOIN players_table JOIN team_table "
+                    + WHERE + " team_name = '" + teamstr+"';";
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){
                 //show message
@@ -51,7 +51,7 @@ public class teamAnalytics extends AppCompatActivity{
 
             StringBuffer buffer = new StringBuffer();
             while (results.moveToNext()){
-                buffer.append("overall_rating : " + results.getString(0) + "\n");
+                buffer.append("ovr_rate : " + results.getString(0) + "\n");
             }
 
             //show all data
@@ -100,9 +100,9 @@ public class teamAnalytics extends AppCompatActivity{
             EditText team = (EditText)findViewById(R.id.editTextQuery3);
             String teamstr = team.getText().toString();
             if (v.getId() == R.id.enter3) {
-                query = SELECT + " won AS w, lose AS l, draw AS d"
-                + FROM + " team_table, "
-                + WHERE + " team_name = " + teamstr;
+                query = SELECT + " win, loss, draw "
+                + FROM + " team_table "
+                + WHERE + " team_name = '" + teamstr+"';";
                 Cursor results = helper.getSpecifiedData(query);
                 if(results.getCount() == 0 ){
                     //show message
@@ -131,9 +131,9 @@ public class teamAnalytics extends AppCompatActivity{
             String teamstr = team.getText().toString();
             String datestr = team.getText().toString();
             if (v.getId() == R.id.enter1) {
-                query = SELECT+" AVG(overall_rating) team_overall "
-                        + FROM +"skills_table skills JOIN player_table player ON skills.player_id = player.player_id JOIN team_table team ON player.player_id = team.player_id "
-                        + HAVING+" team_name = " + teamstr;
+                query = SELECT+" AVG(ovr_rate) team_overall "
+                        + FROM +"skills_table skills JOIN players_table player ON skills.player_id = player.player_id JOIN team_table team ON player.player_id = team.player_id "
+                        + HAVING+" team_name = '" + teamstr+"';";
                 Cursor results = helper.getSpecifiedData(query);
                 if(results.getCount() == 0 ){
                     //show message
@@ -159,10 +159,9 @@ public class teamAnalytics extends AppCompatActivity{
             EditText team = (EditText)findViewById(R.id.editTextQuery5);
             String teamstr = team.getText().toString();
             if (v.getId() == R.id.enter5) {
-                query = SELECT +" salary, player_name "
-                    + FROM +" salary_table salary JOIN player_table player ON salary.player_id = player.player_id "
-                    + WHERE +" team_id = "+ teamstr
-                    + GROUP_BY + " player_name, salary;";
+                query = SELECT +" player_name, salary "
+                    + FROM + " salary_table NATURAL JOIN players_table "
+                    + WHERE + " team_id = '" + teamstr+"';";
 
                 Cursor results = helper.getSpecifiedData(query);
                 if(results.getCount() == 0 ){
@@ -215,8 +214,8 @@ public class teamAnalytics extends AppCompatActivity{
             EditText team = (EditText)findViewById(R.id.editTextQuery6);
             String teamstr = team.getText().toString();
             query = SELECT +" player_name " +
-                    FROM +" player_table player JOIN team_table team ON player.team_id = team.team_id JOIN skills_table skills ON player.player_id = skills.player_id" +
-                    WHERE +" def_rating = ("+SELECT+" MAX(def_rating) "+FROM+" skills_table) AND team_name = "+teamstr +";";
+                    FROM +" players_table player NATURAL JOIN team_table team NATURAL JOIN skills_table skills " +
+                    WHERE +" def_rate = ("+SELECT+" MAX(def_rate) "+FROM+" skills_table) AND team_name = '" + teamstr+"';";
 
 
             Cursor results = helper.getSpecifiedData(query);
@@ -244,7 +243,7 @@ public class teamAnalytics extends AppCompatActivity{
             query = SELECT+" team_name " +
                     FROM +" team_table, match_table " +
                     WHERE+" (team_id = team_id1 OR team_id = team_id2) " +
-                        "AND stadium <> " + stadiumstr + ";";
+                        "AND stadium <> '" + stadiumstr+"';";
 
 
             Cursor results = helper.getSpecifiedData(query);
@@ -268,7 +267,7 @@ public class teamAnalytics extends AppCompatActivity{
     public void onEnter9(View v) {
         if(v.getId()== R.id.enter9) {
             query = SELECT+" COUNT(position) AS count_st, team_name " +
-                    FROM+" team_table team JOIN player_table player ON team.team_id = player.team_id JOIN skills_table skills ON player.player_id = skills.player_id " +
+                    FROM+" team_table team JOIN players_table player JOIN skills_table skills " +
                     WHERE+" position = st " +
                     GROUP_BY+" team_name " +
                     HAVING+" count_st >3;";

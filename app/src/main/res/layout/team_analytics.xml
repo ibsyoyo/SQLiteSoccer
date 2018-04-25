@@ -19,11 +19,11 @@
             android:orientation="vertical"
             tools:context="com.example.ibrahim.sqlitesoccer.teamAnalytics">
 
-            <EditText
-                android:id="@+id/textViewWelcome"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome to Team Analytics" />
+                android:text="Welcome to Team Analytics!" />
 
             <TextView
                 android:id="@+id/textViewQuery1"
@@ -124,7 +124,7 @@
                 android:id="@+id/textViewQuery5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter a team to see the salary of all the player" />
+                android:text="Enter a Team ID to see the salary of all the players" />
 
             <EditText
                 android:id="@+id/editTextQuery4"
@@ -145,13 +145,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Press enter to see what team has the most amount of wins" />
-
-            <EditText
-                android:id="@+id/editTextQuery5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/enter6"
@@ -188,6 +181,13 @@
 
             <EditText
                 android:id="@+id/editTextQuery7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextQuery5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
