@@ -38,8 +38,7 @@ public class playerAnalytics extends AppCompatActivity {
         if (v.getId() == R.id.enterP1) {
             EditText player = (EditText)findViewById(R.id.editTextQueryp1);
             String playerstr = player.getText().toString();
-            query =
-                    SELECT + " team_name " +
+            query = SELECT + " team_name " +
                     FROM + " team_table " +
                     WHERE + " team_id = " +
                     "(" + SELECT+" team_id " +
@@ -96,8 +95,7 @@ public class playerAnalytics extends AppCompatActivity {
             EditText player = (EditText)findViewById(R.id.editTextQueryP2);
             String playerstr = player.getText().toString();
             query = SELECT+" country " +
-                    FROM+" league_table league JOIN team_table team ON league.leag_id = team.leag_id JOIN player_table player" +
-                    "ON player.team_id = team.team_id " +
+                    FROM+" league_table league JOIN team_table team JOIN player_table player" +
                     WHERE+" player_name = "+playerstr+";";
 
 
@@ -124,7 +122,7 @@ public class playerAnalytics extends AppCompatActivity {
             EditText player = (EditText)findViewById(R.id.editTextQueryP3);
             String playerstr = player.getText().toString();
             query = SELECT+" salary/26 AS salary_per_week " +
-                    FROM+" salary_table salary JOIN player_table player ON salary.player_id = player.player_id " +
+                    FROM+" salary_table salary JOIN player_table player " +
                     WHERE+" player_name = " +playerstr +";";
 
 
@@ -152,8 +150,8 @@ public class playerAnalytics extends AppCompatActivity {
             EditText player = (EditText)findViewById(R.id.editTextQueryP4);
             String playerstr = player.getText().toString();
             query = SELECT+" player_name, jersey_num, player_id, " +
-                        "overall_rating, position "+
-                    FROM+" player_table player JOIN skills_table skills ON player.player_id = skills.player_id " +
+                        "ovr_rate, position "+
+                    FROM+" player_table player JOIN skills_table skills " +
                     WHERE+" player_name = " +playerstr +";";
 
             Cursor results = helper.getSpecifiedData(query);
