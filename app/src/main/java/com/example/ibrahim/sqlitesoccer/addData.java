@@ -41,15 +41,15 @@ public class addData extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(TextUtils.isEmpty(name)){
+                        if(name.equals(null)){
                             Toast.makeText(addData.this, "Player name must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(jersey)){
+                        if(jersey.equals(null)){
                             Toast.makeText(addData.this, "Jersey number must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(team)){
+                        if(jersey.equals(null)){
                             Toast.makeText(addData.this, "Team must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }

@@ -51,35 +51,35 @@ public class addDataMatchs extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(TextUtils.isEmpty(mid)){
+                        if(mid.equals(null)){
                             Toast.makeText(addDataMatchs.this, "Match Id Id must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(tid1)){
+                        if(tid1.equals(null)){
                             Toast.makeText(addDataMatchs.this, "Home team must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(tid2)){
+                        if(tid2.equals(null)){
                             Toast.makeText(addDataMatchs.this, "Away team must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(ref)){
+                        if(ref.equals(null)){
                             Toast.makeText(addDataMatchs.this, "Referee must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(t1sco)){
+                        if(t1sco.equals(null)){
                             Toast.makeText(addDataMatchs.this, "Home team score must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(t2sco)){
+                        if(t2sco.equals(null)){
                             Toast.makeText(addDataMatchs.this, "Away team score must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(date)){
+                        if(date.equals(null)){
                             Toast.makeText(addDataMatchs.this, "Date must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(stadium)){
+                        if(stadium.equals(null)){
                             Toast.makeText(addDataMatchs.this, "Stadium must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }

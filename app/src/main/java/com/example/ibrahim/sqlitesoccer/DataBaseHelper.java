@@ -13,6 +13,9 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class DataBaseHelper extends SQLiteOpenHelper {
+    public static final String SELECT = "SELECT";
+    public static final String FROM = "FROM";
+    public static final String WHERE = "WHERE";
 
     public static String SELECT_QUERY = " ";
     public static SQLiteDatabase db;
@@ -123,6 +126,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_SALARY_TABLE);
         db.execSQL(CREATE_LEAGUE_TABLE);
         db.execSQL(CREATE_MATCHS_TABLE);
+
 
         this.db = db;
     }
@@ -289,6 +293,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         Cursor results = this.db.rawQuery(query, null);
         return results;
+    }
+    public void createNewView(String queryView){
+        this.db = this.getWritableDatabase();
+        db.execSQL(queryView);
     }
 
 

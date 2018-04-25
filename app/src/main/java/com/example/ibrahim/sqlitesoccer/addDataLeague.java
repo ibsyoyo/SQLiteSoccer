@@ -42,15 +42,15 @@ public class addDataLeague extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(TextUtils.isEmpty(leagueid)){
+                        if(leagueid.equals(null)){
                             Toast.makeText(addDataLeague.this, "League Id must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(leaguename)){
+                        if(leaguename.equals(null)){
                             Toast.makeText(addDataLeague.this, "League Name must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(country)){
+                        if(country.equals(null)){
                             Toast.makeText(addDataLeague.this, "Country must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }

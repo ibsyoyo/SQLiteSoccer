@@ -45,23 +45,23 @@ public class addDataSkills extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(TextUtils.isEmpty(pid)) {
+                        if(pid.equals(null)) {
                             Toast.makeText(addDataSkills.this, "Player Id must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(ovr)) {
+                        if(ovr.equals(null)) {
                             Toast.makeText(addDataSkills.this, "Overall rating must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(att)) {
+                        if(att.equals(null)) {
                             Toast.makeText(addDataSkills.this, "Attack rating must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(def)) {
+                        if(def.equals(null)) {
                             Toast.makeText(addDataSkills.this, "Defense rating must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(pos)) {
+                        if(pos.equals(null)) {
                             Toast.makeText(addDataSkills.this, "Position must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }

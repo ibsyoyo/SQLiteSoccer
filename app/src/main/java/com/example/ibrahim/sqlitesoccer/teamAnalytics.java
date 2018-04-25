@@ -240,7 +240,7 @@ public class teamAnalytics extends AppCompatActivity{
     //Enter a stadium to find teams that have never played there
     public void onEnter8(View v){
         if (v.getId() == R.id.enter8) {
-            EditText stadium = (EditText)findViewById(R.id.editTextQuery7);
+            EditText stadium = (EditText)findViewById(R.id.editTextQuery5);
             String stadiumstr = stadium.getText().toString();
             query = SELECT+" team_name " +
                     FROM +" team_table, match_table " +
@@ -257,11 +257,11 @@ public class teamAnalytics extends AppCompatActivity{
 
             StringBuffer buffer = new StringBuffer();
             while (results.moveToNext()){
-                buffer.append("Best defender for " + stadiumstr+" : " + results.getString(0) + "\n");
+                buffer.append("Teams never played at " + stadiumstr+" : " + results.getString(0) + "\n");
             }
 
             //show all data
-            showMessage("Best defender ", buffer.toString());
+            showMessage("Teams never played at ", buffer.toString());
 
         }
     }

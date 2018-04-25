@@ -121,9 +121,9 @@ public class playerAnalytics extends AppCompatActivity {
         if (v.getId() == R.id.enterP4) {
             EditText player = (EditText)findViewById(R.id.editTextQueryP3);
             String playerstr = player.getText().toString();
-            query = SELECT+" salary/26 AS salary_per_week " +
-                    FROM+" salary_table salary JOIN player_table player " +
-                    WHERE+" player_name = " +playerstr +";";
+            query = SELECT+" salary AS salary_per_week " +
+                    FROM+" salary_table salary NATURAL JOIN players_table player " +
+                    WHERE+" player_name = '" +playerstr +"';";
 
 
 
@@ -151,8 +151,8 @@ public class playerAnalytics extends AppCompatActivity {
             String playerstr = player.getText().toString();
             query = SELECT+" player_name, jersey_num, player_id, " +
                         "ovr_rate, position "+
-                    FROM+" player_table player JOIN skills_table skills " +
-                    WHERE+" player_name = " +playerstr +";";
+                    FROM+" players_table player NATURAL JOIN skills_table skills " +
+                    WHERE+" player_name = '" +playerstr +"';";
 
             Cursor results = helper.getSpecifiedData(query);
             if(results.getCount() == 0 ){

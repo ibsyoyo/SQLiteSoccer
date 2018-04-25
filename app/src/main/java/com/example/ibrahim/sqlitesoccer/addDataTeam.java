@@ -48,26 +48,26 @@ public class addDataTeam extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(TextUtils.isEmpty(teamid)) {
+                        if(teamid.equals(null)) {
                             Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(leagueid)) {
+                        if(leagueid.equals(null)) {
                             Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(teamname)) {
+                        if(teamname.equals(null)) {
                             Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(win)) {
+                        if(win.equals(null)) {
                             Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
                             return;
-                        }if(TextUtils.isEmpty(draw)) {
+                        }if(draw.equals(null)) {
                             Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(loss)) {
+                        if(loss.equals(null)) {
                             Toast.makeText(addDataTeam.this, "Team Id must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }

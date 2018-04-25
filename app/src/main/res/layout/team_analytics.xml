@@ -100,12 +100,6 @@
                 android:layout_height="wrap_content"
                 android:text="If you would like to find the record of the team above after a certain date enter the team above and the date below" />
 
-            <CalendarView
-                android:id="@+id/calendarView"
-                android:layout_width="412dp"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
-
             <EditText
                 android:id="@+id/editTextQuery3date"
                 android:layout_width="match_parent"
@@ -178,13 +172,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Enter a stadium to find teams that have never played their" />
-
-            <EditText
-                android:id="@+id/editTextQuery7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextQuery5"

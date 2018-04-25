@@ -40,11 +40,11 @@ public class addDataSalary extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        if(TextUtils.isEmpty(pid)){
+                        if(pid.equals(null)){
                             Toast.makeText(addDataSalary.this, "Player Id Id must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        if(TextUtils.isEmpty(salary)) {
+                        if(salary.equals(null)) {
                             Toast.makeText(addDataSalary.this, "Salary must be entered", Toast.LENGTH_LONG).show();
                             return;
                         }
